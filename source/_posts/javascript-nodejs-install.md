@@ -1,5 +1,5 @@
 ---
-title: javascript-nodejs-install
+title: nodejs安装
 categories:
   - javasctipt
 tags:
@@ -10,7 +10,6 @@ description:
 ---
 # NodeJS安装
 
-
 ### 配置淘宝npm
 国内访问外网是很慢的，安装NodeJS是自带的npm地址默认是：http://registry.npmjs.org，访问很慢，所以一般换成国内的地址。
 
@@ -20,6 +19,7 @@ description:
 npm config set registry http://registry.cnpmjs.org npm info underscore
 #（如果配置成功，这个命令会有字符串response）
 ```
+<!-- more -->
 > 命令行指定
 
 ```bash

@@ -38,7 +38,7 @@ permalink: spring-boot-mybatis
 </configuration>
 ```
 或者使用在application.yml中加入
-```txt
+```
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   type-aliases-package: cn.tisson.wechat.job.pojo

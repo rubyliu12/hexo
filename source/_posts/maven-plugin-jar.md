@@ -1,5 +1,5 @@
 ---
-title: maven plugin jar
+title: maven plugin
 date: 2017-06-19 14:11:20
 categories: [Java]
 tags: [Maven]

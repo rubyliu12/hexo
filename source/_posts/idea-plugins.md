@@ -1,5 +1,5 @@
 ---
-title: idea plugins
+title: IntelliJ IDEA 插件
 date: 2017-06-01 14:07:09
 categories: [IDE]
 tags: [Intellij IDEA]
@@ -12,6 +12,7 @@ permalink: idea
 
 ###### GsonFormat
 >快捷键Alt+S或者鼠标右键选择Generate>GsonFormat
+
 <!-- more -->
 ###### InnerBuilder
 >快捷键Alt+Insert、Shift+Alt+B或者鼠标右键选择Generate->Builder，一般给实体类建立get方法，实体类的属性使用final标记，对于不能空的值，做为Builder构造方法的参数传入，最好有一个实体类做为参数的Builder的构造方法

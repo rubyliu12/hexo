@@ -1,5 +1,5 @@
 ---
-title: hexo.md
+title: hexo初体验
 date: 2017-07-07 08:36:56
 categories: [github]
 tags: [hexo]
@@ -20,7 +20,7 @@ hexo init
 # Hexo随后会自动在目标文件夹建立网站所需要的文件
 npm install
 ```
-
+<!-- more -->
 启动本地Hexo服务
 ```sh
 hexo server

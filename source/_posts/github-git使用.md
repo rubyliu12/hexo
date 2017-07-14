@@ -1,5 +1,5 @@
 ---
-title: git使用.md
+title: git使用
 date: 2017-07-07 08:35:33
 categories: [github]
 tags: [git]

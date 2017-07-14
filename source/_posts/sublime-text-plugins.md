@@ -1,14 +1,14 @@
 ---
-title: sublime-text-plugins
+title: Sublime Text 3 的一些常用插件
 categories:
   - Sublime Text
 tags:
   - Sublime Text
-permalink: sublime-Text
+permalink: sublime-text-plugins
 date: 2017-07-07 08:45:42
 description:
 ---
-# Sublime Text 3 Plugins
+# Sublime Text 3 的一些常用插件
 
 [TOC]
 
@@ -34,6 +34,7 @@ Maintain consistent coding styles between different editors.
 - Sync Settings
 Keep settings in sync via Github-Gist.
 
+<!-- more -->
 ## General
 Useful for all languages.
 

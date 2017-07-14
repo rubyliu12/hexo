@@ -1,5 +1,5 @@
 ---
-title: sublime-text-keys
+title: Sublime Text 的一些快捷键
 categories:
   - Sublime Text
 tags:
@@ -8,8 +8,9 @@ permalink: sublime-text-keys
 date: 2017-07-07 08:46:58
 description:
 ---
-# Sublime Text Keys
+# Sublime Text 的一些快捷键
 
+<!-- more -->
 ```bash
 Ctrl+D 选词 （反复按快捷键，即可继续向下同时选中下一个相同的文本进行同时编辑）
 Ctrl+G 跳转到相应的行

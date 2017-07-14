@@ -1,5 +1,5 @@
 ---
-title: linux-many-open-file
+title: linux many open file问题排查
 categories:
   - linux
 tags:
@@ -18,7 +18,7 @@ CLOSE_WAIT   322
 FIN_WAIT2    43
 ESTABLISHED      144
 ```
-
+<!-- more -->
 ### 2、ss -s显示大量的closed连接
 ```sh
 [imhtp@im2-wx-kf2 ~]$ ss -s
