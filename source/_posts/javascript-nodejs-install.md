@@ -1,7 +1,7 @@
 ---
 title: nodejs安装
 categories:
-  - javasctipt
+  - javascript
 tags:
   - nodejs
 permalink: nodejs

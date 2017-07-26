@@ -40,3 +40,19 @@ permalink: jvm
 -XX:+UseCMSInitiatingOccupancyOnly # 使用手动定义初始化定义开始CMS收集（禁止hostspot自行触发CMS GC）
 -XX:CMSInitiatingOccupancyFraction=70 # 使用CMS作为垃圾回收，使用70%后开始CMS收集（符合公式：CMSInitiatingOccupancyFraction <=((Xmx-Xmn)-(Xmn-Xmn/(SurvivorRatior+2)))/(Xmx-Xmn)*100，否则会报promontion faild错误）
 ```
+
+# OmitStackTraceInFastThrow
+问题描述：生产环境抛异常,但却没有将堆栈信息输出到日志
+```text
+-XX:+OmitStackTraceInFastThrow
+-XX:-OmitStackTraceInFastThrow
+
+# -XX:+OmitStackTraceInFastThrow选项在-server情况下默认开启。
+这就不难解释为何经常在系统日志中看到很多行的java.lang.NullPointerException 苦于找不到stacktrace而不知道错误出在何处。 
+遇到这种情况，解决的方法也很简单：既然在一段时间后jvm才会进行重新编译优化，那么该错误在刚开始出现的时候还是会有stacktrace的。所以向前搜索日志，或者将程序重启，观察刚重启时候的log便可以找到错误的stacktrace
+```
+# PreserveFramePointer
+```text
+–XX:+PreserveFramePointer
+# 如果你觉得你有一天会使用  perfj 画 Flame Graph 的话
+```
