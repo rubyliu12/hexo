@@ -5,7 +5,9 @@ comments: false
 ---
 # 杨力
 ## 个人信息
- - 本科/桂林理工大/应用物理专业
- - 工作年限：4年
- - 技术博客：http://blog.yl-online.top
+ - 本科/桂林理工大学/应用物理专业
+ - 毕业时间：2013年06月
+ - 工作年限：5年
+ - 博客：http://blog.yl-online.top
+ - Github： https://github.com/foreveryang321
  - 地点：广州

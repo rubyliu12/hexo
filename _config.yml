@@ -4,7 +4,7 @@
 
 # Site
 title: 力Li的博客
-subtitle: 码农，程序猿
+subtitle: 
 description:
 author: 力Li
 # email: bu.ru@qq.com #联系邮箱
@@ -15,8 +15,16 @@ timezone: Asia/Shanghai
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://blog.yl-online.top
 root: /
+# :year 文章的发表年份（4 位数）
+# :month  文章的发表月份（2 位数）
+# :i_month  文章的发表月份（去掉开头的零）
+# :day  文章的发表日期 (2 位数)
+# :i_day  文章的发表日期（去掉开头的零）
+# :title  文件名称
+# :id 文章 ID
+# :category 分类。如果文章没有分类，则是 default_category 配置信息。
 # permalink: :year/:month/:day/:title.html
-permalink: :year/:month/:title.html
+permalink: :year/:month/:category/:title.html
 permalink_defaults:
 
 # Directory
@@ -30,10 +38,14 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+# File name of new posts
+new_post_name: :title.md
 default_layout: post
-titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab
+# Transform title into titlecase
+titlecase: false
+# Open external links in new tab
+external_link: true
+# 大小写：1 is lower case and 2 is upper case
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -73,7 +85,7 @@ theme: hexo-theme-next
 deploy:
   type: git
   repository: https://github.com/foreveryang321/foreveryang321.github.io.git
-  #repository: git@github.com:foreveryang321/foreveryang321.github.io.git
+  # repository: git@github.com:foreveryang321/foreveryang321.github.io.git
   branch: master
 
 ######################################################################
@@ -84,7 +96,7 @@ deploy:
 # npm install hexo-all-minifier --save
 ##################################
 html_minifier:
-  enable: true
+  enable: false
   ignore_error: false
   exclude:
 
