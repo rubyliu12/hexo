@@ -12,7 +12,7 @@ linux文件格式的问题（使用unix格式）
 ```bash
 # 查看文件格式
 vi 文件名
-:set ff
+:set ff # :set fileencoding
 # 设置文件格式为unix
 :set ff=unix
 # 保存退出

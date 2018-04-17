@@ -11,7 +11,7 @@ permalink: java-aes-tools
     AES是一个对称分组密码算法，旨在取代DES成为广泛使用的标准。根据使用的密码长度，AES最常见的有3种方案，用以适应不同的场景要求，分别是AES-128、AES-192和AES-256。
     Java中的PKCS5Padding和Javascript中的PKCS7Padding的结果是一样。
     ......
-
+<!-- more -->
 ## Java 版 AES 工具类
 ```java
 package cn.tisson.wechat.common.util;
@@ -159,7 +159,10 @@ public enum AESUtils {
 }
 
 ```
+
+
 ## Java 版 AES 工具类测试
+
 ```java
 package cn.tisson.wechat.common.util;
 
@@ -183,7 +186,10 @@ public class AESUtilsTest {
     }
 }
 ```
+
+
 ## JS 版 AES 工具类
+
 要引入的 js 文件
 地址：[https://github.com/brix/crypto-js](https://github.com/brix/crypto-js)
 ```javascript
@@ -193,7 +199,10 @@ public class AESUtilsTest {
 <script th:src="@{/crypto-js/aes.js}"></script>
 <script th:src="@{/crypto-js/mode-ecb.js}"></script>
 ```
+
+
 ## JS 版 AES 工具类扩展
+
 ```javascript
 function getRandom(len) {
     var a = len || 16,
@@ -232,7 +241,10 @@ function decryptAES(str, key) {
     // return c.toString(CryptoJS.enc.Utf8);
 }
 ```
+
+
 ## JS 版 AES 工具类测试
+
 ```javascript
 var key = getRandom();
 console.log('key: %o', key);

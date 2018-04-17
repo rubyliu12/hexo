@@ -6,7 +6,7 @@ tags: [spring-boot, Hibernate, sql, criteria]
 description:
 permalink: jpa-criteria
 ---
-主要是记录一些在使用`spring-data-jpa` + `hibernate`过程中遇到的一些问题，和要注意的知识点
+主要是记录一些在使用`spring-data-jpa` + `Hibernate`过程中遇到的一些问题，和要注意的知识点
 
 # Pageable 和 PageRequest 分页
 在Mysql、Oracle中分页从0开始

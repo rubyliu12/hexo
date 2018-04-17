@@ -8,6 +8,9 @@ permalink: tomcat-start-shell
 ---
 
 # Tomcat 启动脚本
+
+## start.sh
+
 ```bash
 #!/usr/bin/env bash
 
@@ -64,4 +67,16 @@ elif [[ "$1" = "check" ]] ; then
 else
   echo "$DATE_PATTERN is not support $1" | tee -a $TC_STDOUT_FILE
 fi
+```
+
+
+
+## 使用说明
+
+```sh
+sh start.sh start # 重启
+sh start.sh # 重启
+sh start.sh restart # 重启
+sh start.sh check # 检测服务是否启动，没有启动，则启动之，否则不做其他操作
+sh start.sh kill # kill掉已启动的服务进程
 ```

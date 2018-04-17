@@ -6,9 +6,10 @@ tags: [Javascript, nodejs]
 description:
 permalink: nodejs
 ---
-# NodeJS安装
+# NodeJS 安装
 
-### 配置淘宝npm
+## 配置淘宝npm
+
 国内访问外网是很慢的，安装NodeJS是自带的npm地址默认是：http://registry.npmjs.org，访问很慢，所以一般换成国内的地址。
 
 > 通过config命令
@@ -37,7 +38,10 @@ node_modules/npm/.npmrc
 prefix=D:\MyTools\nodejs\node_global （修改全局路径）
 cache=D:\MyTools\nodejs\node_global （修改全局路径）
 
-### 修改默认模块下载路径
+
+
+## 修改默认模块下载路径
+
 在安装完nodejs后，npm install -g jshint是被安装在默认路径（C:\Users\用户名\AppData\Roaming\npm）下的
 
 可以通过修改nodejs安装路径下的node_modules/npm/.npmrc文件

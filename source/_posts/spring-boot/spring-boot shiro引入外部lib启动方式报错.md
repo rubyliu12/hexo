@@ -54,7 +54,7 @@ permalink: spring-boot-shiro-ext-lib
 
 启动脚本
 ```shell
-/usr/java/jdk1.8.0_144/bin/java -server -Djava.ext.dirs=/opt/tisson-web-open/lib -jar tisson-web-open.jar --spring.profiles.active=local
+/usr/java/jdk1.8.0_144/bin/java -server -Djava.ext.dirs=/opt/tisson-web-open/lib -Dspring.profiles.active=local -jar tisson-web-open.jar
 ```
 
 启动异常信息
@@ -268,3 +268,7 @@ In JBoss/Wildfy this is usually done in the configuration file bin/standalone.co
 ```shell
 /usr/java/jdk1.8.0_144/bin/java -server -Dloader.path=/opt/tisson-web-open/lib/ -Dspring.profiles.active=local -jar tisson-web-open.jar
 ```
+
+
+
+> 重点：-Djava.ext.dirs 和 -Dloader.path的区别
