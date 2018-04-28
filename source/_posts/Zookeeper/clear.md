@@ -1,7 +1,7 @@
 ---
-title: Zookeeper 清理日志文件
+title: zookeeper 清理日志文件
 date: 2018-02-06 09:35:05
-categories: [Zookeeper]
+categories: [zookeeper]
 tags: []
 description:
 permalink: zookeeper-clear-shell

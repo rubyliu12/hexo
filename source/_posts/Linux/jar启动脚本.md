@@ -73,3 +73,16 @@ else
   echo "$DATE_PATTERN is not support $1" | tee -a $STDOUT_FILE
 fi
 ```
+
+
+
+# -Djava.ext.dirs和-Dloader.path区别
+
+> -Djava.ext.dirs
+
+使用`-Djava.ext.dirs`配置外部jar包引用时，会覆盖jdk默认的lib/ext下的扩展包
+
+
+
+> -Dloader.path
+

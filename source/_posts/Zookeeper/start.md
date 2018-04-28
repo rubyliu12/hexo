@@ -1,7 +1,7 @@
 ---
-title: Zookeeper 启动脚本
+title: zookeeper 启动脚本
 date: 2018-02-06 09:35:05
-categories: [Zookeeper]
+categories: [zookeeper]
 tags: []
 description:
 permalink: zookeeper-start-shell

@@ -21,7 +21,10 @@ permalink: spring-boot-package
 </build>
 ```
 
+<!-- more -->
+
 # 使用外部配置文件，静态资源
+
 ```xml
 <resources>
     <resource>
@@ -40,7 +43,10 @@ permalink: spring-boot-package
 </resources>
 ```
 
+
+
 # 外部 lib 打包方式
+
 ```xml
 <plugin>
     <groupId>org.springframework.boot</groupId>
