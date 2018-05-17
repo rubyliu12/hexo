@@ -1,10 +1,13 @@
 ---
 title: bootstrap-table 的使用问题
+categories:
+  - Javascript
+tags:
+  - Javascript
+  - bootstrap
+  - bootstrap-table
+abbrlink: b2990e54
 date: 2017-08-29 11:55:07
-categories: [Javascript]
-tags: [Javascript, bootstrap, bootstrap-table]
-description:
-permalink: bootstrap-table
 ---
 # 自定义分页、排序等参数
 ```javascript

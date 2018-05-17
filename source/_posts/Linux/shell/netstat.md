@@ -1,10 +1,12 @@
 ---
 title: Linux netstat 命令
+categories:
+  - Linux
+tags:
+  - shell
+  - netstat
+abbrlink: 6c05ba39
 date: 2018-02-06 09:35:05
-categories: [Linux]
-tags: [shell, netstat]
-description:
-permalink: linux-shell-netstat
 ---
 
 # netstat

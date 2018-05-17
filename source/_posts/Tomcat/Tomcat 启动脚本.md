@@ -1,10 +1,11 @@
 ---
 title: Tomcat 启动脚本
+categories:
+  - Tomcat
+tags:
+  - shell
+abbrlink: e22f47ab
 date: 2018-02-06 09:35:05
-categories: [Tomcat]
-tags: [shell]
-description:
-permalink: tomcat-start-shell
 ---
 
 # Tomcat 启动脚本

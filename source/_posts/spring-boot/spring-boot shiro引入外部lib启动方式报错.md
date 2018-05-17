@@ -1,10 +1,12 @@
 ---
 title: spring-boot shiro引入外部lib启动方式报错
+categories:
+  - Java
+tags:
+  - spring-boot
+  - shiro
+abbrlink: e20f93cc
 date: 2018-02-05 15:34:07
-categories: [Java]
-tags: [spring-boot, shiro]
-description:
-permalink: spring-boot-shiro-ext-lib
 ---
 
 打包方式

@@ -1,10 +1,12 @@
 ---
 title: jar启动脚本
+categories:
+  - Linux
+tags:
+  - Java
+  - jar
+abbrlink: 6d838077
 date: 2018-02-06 09:35:05
-categories: [Linux]
-tags: [Java, jar]
-description:
-permalink: linux-shell-jar-start
 ---
 
 # jar启动脚本

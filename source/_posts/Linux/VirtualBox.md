@@ -1,10 +1,11 @@
 ---
 title: VirtualBox 虚拟机安装 CentOS
+categories:
+  - Linux
+tags:
+  - VirtualBox
+abbrlink: a45b124
 date: 2017-07-07 08:54:46
-categories: [Linux]
-tags: [VirtualBox]
-description:
-permalink: virtualbox-centos
 ---
 # VirtualBox 安装 CentOS 7
 

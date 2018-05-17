@@ -1,10 +1,12 @@
 ---
 title: CentOS安装JDK
+categories:
+  - Linux
+tags:
+  - Java
+  - JDK
+abbrlink: d08f134
 date: 2017-03-21 15:25:05
-categories: [Linux]
-tags: [Java, JDK]
-description:
-permalink: centos-jdk
 ---
 
 ## 1、准备

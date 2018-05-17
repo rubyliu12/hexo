@@ -1,10 +1,10 @@
 ---
 title: zookeeper stop脚本
-date: 2018-02-06 09:35:05
-categories: [zookeeper]
+categories:
+  - zookeeper
 tags: []
-description:
-permalink: zookeeper-stop-shell
+abbrlink: 7bd064dc
+date: 2018-02-06 09:35:05
 ---
 
 # stop
@@ -20,3 +20,4 @@ permalink: zookeeper-stop-shell
 cd `dirname $0`
 ./zkServer.sh stop
 ```
+

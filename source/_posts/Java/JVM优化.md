@@ -1,10 +1,11 @@
 ---
 title: JVM优化
+categories:
+  - Java
+tags:
+  - JVM
+abbrlink: 1a45f578
 date: 2017-05-23 21:47:17
-categories: [Java]
-tags: [JVM]
-description:
-permalink: jvm
 ---
 阿里巴巴dubbo框架推荐配置参数，参数值根据情况调整
 ```shell

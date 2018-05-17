@@ -1,10 +1,11 @@
 ---
 title: Linux安装FTP
+categories:
+  - Linux
+tags:
+  - FTP
+abbrlink: 9c4dd72b
 date: 2017-03-21 15:25:05
-categories: [Linux]
-tags: [FTP]
-description:
-permalink: centos-jdk
 ---
 
 # Linux安装FTP

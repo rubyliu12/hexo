@@ -1,10 +1,12 @@
 ---
 title: Linux find 命令
+categories:
+  - Linux
+tags:
+  - shell
+  - find
+abbrlink: 7b744fec
 date: 2018-02-06 09:35:05
-categories: [Linux]
-tags: [shell, find]
-description:
-permalink: linux-shell-find
 ---
 
 # find

@@ -1,10 +1,13 @@
 ---
 title: Java、JS版RSA加密算法工具类
+categories:
+  - Java
+tags:
+  - Java
+  - Javascript
+  - RSA
+abbrlink: 5314af17
 date: 2018-02-18 12:43:30
-categories: [Java]
-tags: [Java, Javascript, RSA]
-description:
-permalink: java-rsa-tools
 ---
 [TOC]
     本文主要是实现`RSA`算法的`Java`版本和`Javascript`版本，并提供测试例子。

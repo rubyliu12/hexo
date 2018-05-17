@@ -1,10 +1,13 @@
 ---
 title: store.js的使用
+categories:
+  - Javascript
+tags:
+  - Javascript
+  - localStorage
+  - store.js
+abbrlink: 78a81828
 date: 2017-05-23 21:33:43
-categories: [Javascript]
-tags: [Javascript, localStorage, store.js]
-description:
-permalink: storejs
 ---
 基于[store.js](https://github.com/marcuswestin/store.js)实现`localStorage`缓存过期策略
 <!-- more -->

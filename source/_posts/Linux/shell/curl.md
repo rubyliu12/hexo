@@ -1,10 +1,12 @@
 ---
 title: Linux curl 命令
+categories:
+  - Linux
+tags:
+  - shell
+  - curl
+abbrlink: aea02818
 date: 2018-02-06 09:35:05
-categories: [Linux]
-tags: [shell, curl]
-description:
-permalink: linux-shell-curl
 ---
 
 # curl

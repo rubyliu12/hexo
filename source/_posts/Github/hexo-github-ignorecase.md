@@ -1,10 +1,12 @@
 ---
 title: hexo github ignorecase
+categories:
+  - Github
+tags:
+  - Github
+  - hexo
+abbrlink: 18219b06
 date: 2018-02-06 10:42:14
-categories: [Github]
-tags: [Github, hexo]
-description:
-permalink: hexo-github-ignorecase
 ---
 # Hexo 部署到 Github Pages 文件夹大小写问题
 

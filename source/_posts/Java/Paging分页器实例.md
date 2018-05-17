@@ -1,10 +1,11 @@
 ---
 title: Paging分页器实例
+categories:
+  - Java
+tags:
+  - 分页器
+abbrlink: 30063ce8
 date: 2017-05-30 09:33:35
-categories: [Java]
-tags: [分页器]
-description:
-permalink: paginator
 ---
 # Java中实现一个分页器
 <!-- more -->

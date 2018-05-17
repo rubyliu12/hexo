@@ -1,10 +1,13 @@
 ---
 title: Java、JS版AES加密算法工具类
+categories:
+  - Java
+tags:
+  - Java
+  - Javascript
+  - AES
+abbrlink: 1f7e0ef5
 date: 2018-02-18 12:43:30
-categories: [Java]
-tags: [Java, Javascript, AES]
-description:
-permalink: java-aes-tools
 ---
 [TOC]
     本文主要是实现`AES`算法的`Java`版本和`Javascript`版本，并提供测试例子。

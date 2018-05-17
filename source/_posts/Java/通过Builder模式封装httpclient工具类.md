@@ -1,10 +1,13 @@
 ---
 title: 通过Builder模式封装httpclient工具类
+categories:
+  - Java
+tags:
+  - apache
+  - httpclient
+  - httpcore
+abbrlink: 3f9d78d5
 date: 2017-05-23 15:22:01
-categories: [Java]
-tags: [apache, httpclient, httpcore]
-description:
-permalink: httpclient-builder
 ---
 
 依赖包

@@ -1,10 +1,12 @@
 ---
 title: SQL中inner join、outer join和cross join的区别
+categories:
+  - sql
+tags:
+  - mysql
+  - oracle
+abbrlink: 8b243174
 date: 2017-08-02 08:43:05
-categories: [sql]
-tags: [mysql, oracle]
-description:
-permalink: sql-join
 ---
 # SQL中inner join、outer join和cross join的区别
 

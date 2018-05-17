@@ -1,10 +1,11 @@
 ---
 title: elasticsearch踩坑
+categories:
+  - ELK
+tags:
+  - elaticsearch
+abbrlink: 19540ce1
 date: 2017-03-21 15:48:48
-categories: [ELK]
-tags: [elaticsearch]
-description:
-permalink: elasticsearch-issue
 ---
 - 问题一  
 

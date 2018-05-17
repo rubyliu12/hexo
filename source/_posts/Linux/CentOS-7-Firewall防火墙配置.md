@@ -1,10 +1,12 @@
 ---
 title: CentOS 7 Firewall防火墙配置
+categories:
+  - Linux
+tags:
+  - Firewall
+  - iptables
+abbrlink: 9af5b5dc
 date: 2017-03-21 15:34:07
-categories: [Linux]
-tags: [Firewall, iptables]
-description:
-permalink: centos-firewall
 ---
 
 ### 一、firewall介绍

@@ -1,10 +1,12 @@
 ---
 title: Linux grep 命令
+categories:
+  - Linux
+tags:
+  - shell
+  - grep
+abbrlink: 1f104b3f
 date: 2018-02-06 09:35:05
-categories: [Linux]
-tags: [shell, grep]
-description:
-permalink: linux-shell-grep
 ---
 
 # grep
@@ -13,10 +15,6 @@ permalink: linux-shell-grep
 grep 'sign.*time.*openid' access_p80_weixinv3.log | awk '{a[$1]++}END{for(i in a)print a[i]"\t"i}' | sort -n
 ```
 
-##  统计某些字符出现次数
-```bash
-grep 'sign.*time.*openid' access_p80_weixinv3.log | awk '{a[$1]++}END{for(i in a)print a[i]"\t"i}' | sort -n
-```
 4       183.3.234.45
 10      183.3.234.57
 20      183.3.234.58

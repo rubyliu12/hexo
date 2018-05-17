@@ -1,10 +1,12 @@
 ---
 title: IntelliJ IDEA 插件
+categories:
+  - Intellij
+tags:
+  - IDE
+  - plugins
+abbrlink: b7ca9e0f
 date: 2017-06-01 14:07:09
-categories: [Intellij]
-tags: [IDE, plugins]
-description:
-permalink: idea
 ---
 ## IntelliJ插件篇
 ###### Maven Helper

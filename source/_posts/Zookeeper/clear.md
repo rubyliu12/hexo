@@ -1,10 +1,10 @@
 ---
 title: zookeeper 清理日志文件
-date: 2018-02-06 09:35:05
-categories: [zookeeper]
+categories:
+  - zookeeper
 tags: []
-description:
-permalink: zookeeper-clear-shell
+abbrlink: c0bbcacd
+date: 2018-02-06 09:35:05
 ---
 
 # clear

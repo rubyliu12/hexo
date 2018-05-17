@@ -1,10 +1,11 @@
 ---
 title: Sublime Text 3 的一些常用插件
-categories: [Sublime Text]
-tags: [plugins]
-permalink: sublime-text-plugins
+categories:
+  - Sublime Text
+tags:
+  - plugins
+abbrlink: 9b6062f9
 date: 2017-07-07 08:45:42
-description:
 ---
 # Sublime Text 3 的一些常用插件
 

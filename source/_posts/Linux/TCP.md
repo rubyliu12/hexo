@@ -1,10 +1,11 @@
 ---
 title: TCP
+categories:
+  - Linux
+tags:
+  - TCP
+abbrlink: 24cb124c
 date: 2018-02-06 09:35:05
-categories: [Linux]
-tags: [TCP]
-description:
-permalink: linux-shell-TCP
 ---
 
 # TCP

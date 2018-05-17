@@ -1,10 +1,11 @@
 ---
 title: elasticsearch安装配置
+categories:
+  - ELK
+tags:
+  - elaticsearch
+abbrlink: 4c158d
 date: 2017-03-21 15:47:36
-categories: [ELK]
-tags: [elaticsearch]
-description:
-permalink: elasticsearch-install
 ---
 ### 一、安装Elasticsearch
 - 下载并安装 .zip 包

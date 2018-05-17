@@ -1,10 +1,12 @@
 ---
 title: spring jpa page
+categories:
+  - Java
+tags:
+  - spring-boot
+  - jpa
+abbrlink: 6cc2492a
 date: 2017-09-11 14:11:20
-categories: [Java]
-tags: [spring-boot, jpa]
-description:
-permalink: spring-jpa-page
 ---
 总记录数
 getTotalElements ---> 21

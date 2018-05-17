@@ -1,10 +1,9 @@
 ---
 title: linux many open file问题排查
-date: 2017-07-07 08:51:38
 categories: Linux
 tags: []
-permalink: linux-many-open-file
-description:
+abbrlink: 5618a78c
+date: 2017-07-07 08:51:38
 ---
 # lsof查询many open file等问题
 

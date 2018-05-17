@@ -1,10 +1,12 @@
 ---
 title: Linux lsof 命令
+categories:
+  - Linux
+tags:
+  - shell
+  - lsof
+abbrlink: fc091577
 date: 2018-02-06 09:35:05
-categories: [Linux]
-tags: [shell, lsof]
-description:
-permalink: linux-shell-lsof
 ---
 
 # lsof

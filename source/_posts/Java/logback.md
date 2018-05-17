@@ -1,10 +1,11 @@
 ---
 title: logback多环境配置
+categories:
+  - Java
+tags:
+  - logback
+abbrlink: 7bd4851
 date: 2017-03-21 15:39:36
-categories: [Java]
-tags: [logback]
-description:
-permalink: java-logback
 ---
 
 `application.yml` 配置 `profiles`

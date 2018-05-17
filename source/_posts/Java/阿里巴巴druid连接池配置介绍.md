@@ -1,10 +1,11 @@
 ---
 title: 阿里巴巴druid连接池配置介绍
-date: 2017-05-23 22:07:42
 categories: Java
-tags: [druid, DataSource]
-description:
-permalink: alibaba-druid
+tags:
+  - druid
+  - DataSource
+abbrlink: facb8eb2
+date: 2017-05-23 22:07:42
 ---
 druid连接池配置
 

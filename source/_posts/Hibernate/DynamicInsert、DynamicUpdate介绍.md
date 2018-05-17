@@ -1,10 +1,12 @@
 ---
 title: Hibernate的DynamicInsert、DynamicUpdate介绍
+categories:
+  - Hibernate
+tags:
+  - Hibernate
+  - sql
+abbrlink: 2ed26d9a
 date: 2017-07-26 15:47:36
-categories: [Hibernate]
-tags: [Hibernate, sql]
-description:
-permalink: hibernate-dynamic
 ---
 ## 作用
 

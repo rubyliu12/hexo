@@ -24,8 +24,15 @@ root: /
 # :id 文章 ID
 # :category 分类。如果文章没有分类，则是 default_category 配置信息。
 # permalink: :year/:month/:day/:title.html
-permalink: :year/:month/:category/:title.html
-permalink_defaults:
+# permalink: :year/:month/:category/:title.html
+# permalink_defaults:
+
+# addrlink ---> npm install hexo-abbrlink --save
+# 后期不管怎么修改内容，链接永久都不会变
+permalink: post/:abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
 
 # Directory
 source_dir: source

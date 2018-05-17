@@ -1,10 +1,12 @@
 ---
 title: spring boot + redis自定义注解
+categories:
+  - Java
+tags:
+  - spring-boot
+  - redis
+abbrlink: '68714344'
 date: 2018-03-23 15:34:18
-categories: [Java]
-tags: [spring-boot, redis]
-description:
-permalink: spring-boot-redis
 ---
 
 >注意：该方法，不兼容spring-boot 2.0

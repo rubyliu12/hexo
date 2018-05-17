@@ -1,10 +1,10 @@
 ---
 title: zookeeper evn 环境变量配置脚本
-date: 2018-02-06 09:35:05
-categories: [zookeeper]
+categories:
+  - zookeeper
 tags: []
-description:
-permalink: zookeeper-env-shell
+abbrlink: '57428144'
+date: 2018-02-06 09:35:05
 ---
 
 # zookeeper-env

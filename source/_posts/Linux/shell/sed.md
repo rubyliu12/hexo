@@ -1,10 +1,12 @@
 ---
 title: Linux sed 命令
+categories:
+  - Linux
+tags:
+  - shell
+  - sed
+abbrlink: b8ec468d
 date: 2018-02-06 09:35:05
-categories: [Linux]
-tags: [shell, sed]
-description:
-permalink: linux-shell-sed
 ---
 
 # sed

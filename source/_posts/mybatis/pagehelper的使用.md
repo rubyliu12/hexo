@@ -1,10 +1,12 @@
 ---
 title: pagehelper 使用笔记
+categories:
+  - mybatis
+tags:
+  - mybatis
+  - pagehelper
+abbrlink: 4f0d5500
 date: 2017-08-01 09:21:36
-categories: [mybatis]
-tags: [mybatis, pagehelper]
-description:
-permalink: mybatis-pagehelper
 ---
 主要是记录一些在使用`mybatis` + `pagehelper`过程中遇到的一些问题，和要注意的知识点
 # PageHelper 分页

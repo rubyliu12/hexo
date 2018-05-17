@@ -1,10 +1,12 @@
 ---
 title: mybatis整合spring boot
+categories:
+  - Java
+tags:
+  - spring-boot
+  - mybatis
+abbrlink: ec4f6c67
 date: 2017-03-21 15:44:18
-categories: [Java]
-tags: [spring-boot, mybatis]
-description:
-permalink: spring-boot-mybatis
 ---
 
 1. 在pom.xml加入如下内容

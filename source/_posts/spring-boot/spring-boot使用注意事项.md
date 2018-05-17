@@ -1,10 +1,11 @@
 ---
 title: spring boot issues
+categories:
+  - Java
+tags:
+  - spring-boot
+abbrlink: 47aa1712
 date: 2017-09-11 14:11:20
-categories: [Java]
-tags: [spring-boot]
-description:
-permalink: spring-boot-issues
 ---
 
 
@@ -17,6 +18,32 @@ spring-boot-starter-parent切换回1.5.2.RELEASE版本
 `java.lang.NoSuchMethodError: org.springframework.data.repository.config.AnnotationRepositoryConfigurationSource.<init>`异常
 
 请查看[https://github.com/spring-projects/spring-boot/issues/9606](https://github.com/spring-projects/spring-boot/issues/9606)
+
+
+
+## 外部 Tomcat 容器部署
+
+> 外部 Tomcat 等容器部署war，要继承 SpringBootServletInitializer 类
+
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
+
+@SpringBootApplication
+public class OutserverApplication extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(OutserverApplication.class);
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(OutserverApplication.class, args);
+    }
+}
+```
 
 
 

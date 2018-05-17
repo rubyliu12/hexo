@@ -1,10 +1,12 @@
 ---
 title: maven plugin
+categories:
+  - Java
+tags:
+  - Java
+  - Maven
+abbrlink: e3a1de67
 date: 2017-06-19 14:11:20
-categories: [Java]
-tags: [Java, Maven]
-description:
-permalink: maven-package-jar-lib
 ---
 # maven打包jar，并把第三方jar包放到lib中
 
@@ -92,4 +94,113 @@ spring-boot插件打包
         </plugin>
     </plugins>
 </build>
+```
+
+
+
+# 阿里云私有库
+
+```xml
+<mirror>
+    <id>aliyun-nexus</id>
+    <mirrorOf>central</mirrorOf>
+    <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+</mirror>
+<!--
+<mirror>
+    <id>aliyun-nexus-public-snapshots</id>
+    <mirrorOf>public-snapshots</mirrorOf>
+    <url>http://maven.aliyun.com/nexus/content/repositories/snapshots/</url>
+</mirror>
+-->
+```
+
+
+
+# 发布 jar 到私有仓库
+
+1. maven setting.xml 配置
+
+```xml
+<server>
+    <id>maven2-weixin-public</id>
+    <username>weixin</username>
+    <password>weixin</password>
+</server>
+<server>
+    <id>maven2-weixin-release</id>
+    <username>weixin</username>
+    <password>weixin</password>
+</server>
+<server>
+    <id>maven2-weixin-snapshots</id>
+    <username>weixin</username>
+    <password>weixin</password>
+</server>
+```
+
+
+
+2. 在项目 pom.xml 配置
+
+```xml
+<!-- 发布 jar 到中央仓库 -->
+<distributionManagement>
+    <repository>
+        <id>maven2-weixin-release</id>
+        <name>Nexus Release Repository</name>
+        <url>http://maven.ctim:8081/repository/maven2-weixin-release/</url>
+    </repository>
+    <snapshotRepository>
+        <id>maven2-weixin-snapshots</id>
+        <name>Nexus Snapshot Repository</name>
+        <url>http://maven.ctim:8081/repository/maven2-weixin-snapshots/</url>
+    </snapshotRepository>
+</distributionManagement>
+```
+
+>  注意，pom.xml中的id要和setting.xml中配置的一致
+
+
+
+3. 执行 deploy 发布 jar 到私有仓库
+
+```sh
+mvn clean deploy -Dmaven.test.skip=true
+```
+
+> 注意：release 版本只能上传一次，SNAPSHOT 版本可以无限次上传
+
+
+
+3. 使用私有仓库下载 jar
+
+在 setting.xml 配置
+
+```xml
+<profile>
+    <id>wechat</id>
+    <repositories>
+        <repository>
+            <id>maven2-weixin-public</id>
+            <name>Nexus Release Repository</name>
+            <url>http://maven.ctim:8081/repository/maven2-weixin-public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+</profile>
+```
+
+和
+
+```xml
+<activeProfiles>
+    <activeProfile>wechat</activeProfile>
+</activeProfiles>
 ```

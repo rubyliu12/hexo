@@ -1,10 +1,12 @@
 ---
 title: hibernate显示sql中的参数值（logback）
+categories:
+  - Hibernate
+tags:
+  - Hibernate
+  - sql
+abbrlink: 9eea8fb4
 date: 2017-07-26 15:47:36
-categories: [Hibernate]
-tags: [Hibernate, sql]
-description:
-permalink: hibernate-show-parameters
 ---
 以下是 logback 的日志输出配置，只要是在 logback 的配置文件中添加以下配置
 ```xml

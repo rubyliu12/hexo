@@ -1,10 +1,12 @@
 ---
 title: nodejs安装
+categories:
+  - Javascript
+tags:
+  - Javascript
+  - nodejs
+abbrlink: 8d0f4649
 date: 2017-07-07 08:43:05
-categories: [Javascript]
-tags: [Javascript, nodejs]
-description:
-permalink: nodejs
 ---
 # NodeJS 安装
 

@@ -1,10 +1,10 @@
 ---
 title: zookeeper 命令使用
-date: 2018-04-28 09:35:05
-categories: [zookeeper]
+categories:
+  - zookeeper
 tags: []
-description:
-permalink: zookeeper-clear-shell
+abbrlink: 56017bc5
+date: 2018-04-28 09:35:05
 ---
 
 # zkCli.sh

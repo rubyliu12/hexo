@@ -1,10 +1,12 @@
 ---
 title: Linux ls 命令
+categories:
+  - Linux
+tags:
+  - shell
+  - ls
+abbrlink: 53b5960c
 date: 2018-02-06 09:35:05
-categories: [Linux]
-tags: [shell, ls]
-description:
-permalink: linux-shell-ls
 ---
 
 # ls

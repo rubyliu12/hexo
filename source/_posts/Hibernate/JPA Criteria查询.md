@@ -1,10 +1,14 @@
 ---
 title: JPA Criteria 查询
+categories:
+  - Hibernate
+tags:
+  - spring-boot
+  - Hibernate
+  - sql
+  - criteria
+abbrlink: 6202485a
 date: 2017-07-30 09:21:36
-categories: [Hibernate]
-tags: [spring-boot, Hibernate, sql, criteria]
-description:
-permalink: jpa-criteria
 ---
 
 #构建 CriteriaQuery 实例API说明

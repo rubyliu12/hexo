@@ -1,10 +1,12 @@
 ---
 title: spring boot 2.0 + redis自定义注解
+categories:
+  - Java
+tags:
+  - spring-boot
+  - redis
+abbrlink: c85b105d
 date: 2018-03-23 15:44:18
-categories: [Java]
-tags: [spring-boot, redis]
-description:
-permalink: spring-boot-2.0-redis
 ---
 
 # 自定义CacheExpire注解

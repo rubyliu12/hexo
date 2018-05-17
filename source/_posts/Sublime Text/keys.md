@@ -1,10 +1,11 @@
 ---
 title: Sublime Text 的一些快捷键
-categories: [Sublime Text]
-tags: [key]
-permalink: sublime-text-keys
+categories:
+  - Sublime Text
+tags:
+  - key
+abbrlink: 78ee2138
 date: 2017-07-07 08:46:58
-description:
 ---
 # Sublime Text 的一些快捷键
 

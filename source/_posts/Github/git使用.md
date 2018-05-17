@@ -1,10 +1,11 @@
 ---
 title: git使用
+categories:
+  - Github
+tags:
+  - git
+abbrlink: 4896de77
 date: 2017-07-07 08:35:33
-categories: [Github]
-tags: [git]
-description:
-permalink: git
 ---
 # git初始使用
 

@@ -1,10 +1,12 @@
 ---
 title: IntelliJ IDEA 插件
+categories:
+  - Intellij
+tags:
+  - IDE
+  - maven
+abbrlink: b7ca9e0f
 date: 2017-08-02 11:07:09
-categories: [Intellij]
-tags: [IDE, maven]
-description:
-permalink: idea-maven
 ---
 
 windows环境下，Intellij idea12中maven操作时，控制台中文乱码问题（编译报错或者clean install时出现的其他错误描述乱码）

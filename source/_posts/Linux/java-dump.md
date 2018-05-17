@@ -1,10 +1,11 @@
 ---
 title: linux dump内存快照等
+categories:
+  - Linux
+tags:
+  - Java
+abbrlink: 880a8e7e
 date: 2017-07-07 08:50:17
-categories: [Linux]
-tags: [Java]
-permalink: linux-java-dump
-description:
 ---
 # kill之前先dump
 每次线上环境一出问题，大家就慌了，

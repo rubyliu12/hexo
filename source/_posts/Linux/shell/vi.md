@@ -1,10 +1,12 @@
 ---
 title: Linux vi 命令
+categories:
+  - Linux
+tags:
+  - shell
+  - vi
+abbrlink: '87207300'
 date: 2018-02-06 09:35:05
-categories: [Linux]
-tags: [shell, vi]
-description:
-permalink: linux-shell-vi
 ---
 
 # vi

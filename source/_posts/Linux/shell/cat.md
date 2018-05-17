@@ -1,10 +1,12 @@
 ---
 title: Linux cat 命令
+categories:
+  - Linux
+tags:
+  - shell
+  - cat
+abbrlink: be15a742
 date: 2018-02-06 09:35:05
-categories: [Linux]
-tags: [shell, cat]
-description:
-permalink: linux-shell-cat
 ---
 
 # cat

@@ -1,10 +1,10 @@
 ---
 title: zookeeper重启脚本
-date: 2018-02-06 09:35:05
-categories: [zookeeper]
+categories:
+  - zookeeper
 tags: []
-description:
-permalink: zookeeper-restart-shell
+abbrlink: 6c1ad93d
+date: 2018-02-06 09:35:05
 ---
 
 # restart

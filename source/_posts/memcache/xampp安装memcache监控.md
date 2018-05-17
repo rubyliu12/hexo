@@ -1,10 +1,13 @@
 ---
 title: xampp 安装 memcache 监控
+categories:
+  - memcache
+tags:
+  - xampp
+  - memcache
+  - php
+abbrlink: d01399d3
 date: 2017-07-07 08:43:05
-categories: [memcache]
-tags: [xampp, memcache, php]
-description:
-permalink: xampp-memcache
 ---
 # xampp安装memcache监控
 

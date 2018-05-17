@@ -1,10 +1,11 @@
 ---
 title: Oracle使用
+categories:
+  - sql
+tags:
+  - oracle
+abbrlink: db736859
 date: 2018-04-08 17:01:05
-categories: [sql]
-tags: [oracle]
-description:
-permalink: oracle
 ---
 
 # 修改表空间

@@ -1,10 +1,12 @@
 ---
 title: kibana安装配置
+categories:
+  - ELK
+tags:
+  - ELK
+  - kibana
+abbrlink: 33aa0af8
 date: 2017-03-21 15:46:22
-categories: [ELK]
-tags: [kibana]
-description:
-permalink: kibana-install
 ---
 
 `Kibana` 是一个基于浏览器页面的 `Elasticsearch` 前端展示工具。`Kibana` 全部使用 `HTML` 语言和 `JavaScript` 编写的。

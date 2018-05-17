@@ -1,10 +1,12 @@
 ---
 title: Linux cp 命令
+categories:
+  - Linux
+tags:
+  - shell
+  - cp
+abbrlink: 2835e3e
 date: 2018-02-06 09:35:05
-categories: [Linux]
-tags: [shell, cp]
-description:
-permalink: linux-shell-cp
 ---
 
 # cp

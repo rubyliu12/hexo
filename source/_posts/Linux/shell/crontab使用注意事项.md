@@ -1,10 +1,12 @@
 ---
 title: Linux crontab 命令
+categories:
+  - Linux
+tags:
+  - shell
+  - crontab
+abbrlink: b0b79272
 date: 2018-02-06 09:35:05
-categories: [Linux]
-tags: [shell, crontab]
-description:
-permalink: linux-shell-crontab
 ---
 
 # crontab 使用注意事项

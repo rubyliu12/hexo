@@ -1,10 +1,13 @@
 ---
 title: spring boot 定时器
+categories:
+  - Java
+tags:
+  - spring-boot
+  - task
+  - schedule
+abbrlink: 6710625f
 date: 2017-03-21 15:37:27
-categories: [Java]
-tags: [spring-boot, task, schedule]
-description:
-permalink: spring-boot-schedule
 ---
 
 在pom.xml中加入

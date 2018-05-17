@@ -1,10 +1,11 @@
 ---
 title: spring boot 打包相关
+categories:
+  - Java
+tags:
+  - spring-boot
+abbrlink: ab825d27
 date: 2018-04-08 09:11:20
-categories: [Java]
-tags: [spring-boot]
-description:
-permalink: spring-boot-package
 ---
 
 # webjars打包
@@ -45,7 +46,9 @@ permalink: spring-boot-package
 
 
 
-# 外部 lib 打包方式
+# JAR部署方式
+
+> 外部 lib 打包方式
 
 ```xml
 <plugin>
@@ -84,3 +87,27 @@ permalink: spring-boot-package
     </executions>
 </plugin>
 ```
+
+
+
+# WAR包部署方式
+
+```xml
+<plugins>
+    <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+            <layout>WAR</layout>
+            <includes>
+                <include>
+                    <groupId>nothing</groupId>
+                    <artifactId>nothing</artifactId>
+                </include>
+            </includes>
+            <attach>false</attach>
+        </configuration>
+    </plugin>
+</plugins>
+```
+

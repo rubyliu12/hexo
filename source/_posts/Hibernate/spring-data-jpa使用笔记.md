@@ -1,10 +1,14 @@
 ---
 title: spring-data-jpa 使用笔记
+categories:
+  - spring-data-jpa
+tags:
+  - spring-boot
+  - Hibernate
+  - sql
+  - criteria
+abbrlink: 43f916ea
 date: 2017-08-01 09:21:36
-categories: [spring-data-jpa]
-tags: [spring-boot, Hibernate, sql, criteria]
-description:
-permalink: jpa-criteria
 ---
 主要是记录一些在使用`spring-data-jpa` + `Hibernate`过程中遇到的一些问题，和要注意的知识点
 
