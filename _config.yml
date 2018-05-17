@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://blog.yl-online.top
+url: https://blog.yl-online.top
 root: /
 # :year 文章的发表年份（4 位数）
 # :month  文章的发表月份（2 位数）
