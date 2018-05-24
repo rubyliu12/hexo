@@ -4,7 +4,7 @@
 
 # Site
 title: Forever杨
-subtitle: I want to be forever young! Coding make me happy.
+subtitle: I want to be forever young!<br/>Coding make me happy.
 description:
 author: Forever杨
 # email: bu.ru@qq.com #联系邮箱
@@ -27,8 +27,11 @@ root: /
 # permalink: :year/:month/:category/:title.html
 # permalink_defaults:
 
+##################################
+# 自动生成 permalink
+# 后期不管怎么修改内容，链接永久都不会变。除非把文章中的 abbrlink 删掉，才会从新生成一个 abbrlink
 # addrlink ---> npm install hexo-abbrlink --save
-# 后期不管怎么修改内容，链接永久都不会变
+##################################
 permalink: post/:abbrlink.html
 abbrlink:
   alg: crc32  # 算法：crc16(default) and crc32
@@ -143,24 +146,3 @@ archive_generator:
 
 tag_generator:
   per_page: 10
-##################################
-# theme hexo-theme-yilia
-##################################
-jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: false
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: false
-      tags: true

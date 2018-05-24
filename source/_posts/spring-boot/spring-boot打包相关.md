@@ -54,6 +54,14 @@ date: 2018-04-08 09:11:20
 <plugin>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-maven-plugin</artifactId>
+    <version>${spring-boot.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>repackage</goal>
+            </goals>
+        </execution>
+    </executions>
     <configuration>
         <layout>ZIP</layout>
         <includes>
@@ -68,6 +76,7 @@ date: 2018-04-08 09:11:20
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-dependency-plugin</artifactId>
+    <version>3.0.2</version>
     <executions>
         <execution>
             <id>copy-dependencies</id>

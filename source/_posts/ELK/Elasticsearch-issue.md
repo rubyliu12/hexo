@@ -3,6 +3,7 @@ title: elasticsearch踩坑
 categories:
   - ELK
 tags:
+  - ELK
   - elaticsearch
 abbrlink: 19540ce1
 date: 2017-03-21 15:48:48

@@ -10,7 +10,9 @@ abbrlink: 78a81828
 date: 2017-05-23 21:33:43
 ---
 基于[store.js](https://github.com/marcuswestin/store.js)实现`localStorage`缓存过期策略
+
 <!-- more -->
+
  ```javascript
 "use strict"
 ;(function(s) {

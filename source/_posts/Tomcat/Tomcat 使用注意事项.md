@@ -27,7 +27,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$CLASSPATH
 JAVA_OPT="$JAVA_OPT -Xss256k"
 ```
 
-
+<!-- more -->
 
 # Tomcat 安全配置相关
 

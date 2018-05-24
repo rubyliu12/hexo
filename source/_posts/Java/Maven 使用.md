@@ -1,5 +1,5 @@
 ---
-title: maven plugin
+title: Maven 使用
 categories:
   - Java
 tags:
@@ -8,7 +8,7 @@ tags:
 abbrlink: e3a1de67
 date: 2017-06-19 14:11:20
 ---
-# maven打包jar，并把第三方jar包放到lib中
+# Maven 打包 jar
 
 spring-boot插件打包
 ```xml
@@ -98,7 +98,7 @@ spring-boot插件打包
 
 
 
-# 阿里云私有库
+# 配置阿里云私有库
 
 ```xml
 <mirror>
@@ -119,7 +119,7 @@ spring-boot插件打包
 
 # 发布 jar 到私有仓库
 
-1. maven setting.xml 配置
+## Maven setting.xml 配置
 
 ```xml
 <server>
@@ -141,7 +141,7 @@ spring-boot插件打包
 
 
 
-2. 在项目 pom.xml 配置
+## 项目 pom.xml 配置
 
 ```xml
 <!-- 发布 jar 到中央仓库 -->
@@ -163,7 +163,47 @@ spring-boot插件打包
 
 
 
-3. 执行 deploy 发布 jar 到私有仓库
+## 发布源码
+
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-source-plugin</artifactId>
+    <version>2.4</version>
+    <executions>
+        <execution>
+            <id>attach-sources</id>
+            <goals>
+                <goal>jar</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+> 如果不发布源码，可以使用如下配置，只打包源码，不发布到私有仓库
+
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-source-plugin</artifactId>
+    <version>2.4</version>
+    <executions>
+        <execution>
+            <id>attach-sources</id>
+            <!-- 只打包源码，不发布元源码到私有仓库 -->
+            <phase>none</phase>
+            <goals>
+                <goal>jar</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+
+
+## 执行 deploy 发布 jar 到私有仓库
 
 ```sh
 mvn clean deploy -Dmaven.test.skip=true
@@ -173,9 +213,24 @@ mvn clean deploy -Dmaven.test.skip=true
 
 
 
-3. 使用私有仓库下载 jar
+## 使用私有仓库下载 jar
 
-在 setting.xml 配置
+> 在 setting.xml 配置 mirror
+
+```xml
+<mirror>
+    <id>aliyun-nexus</id>
+    <mirrorOf>*</mirrorOf>
+    <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+</mirror>
+<mirror>
+    <id>maven2-weixin-public</id>
+    <mirrorOf>maven2-weixin-public</mirrorOf>
+    <url>http://maven.ctim:8081/repository/maven2-weixin-public/</url>
+</mirror>
+```
+
+> 在 setting.xml 配置 profile 并激活
 
 ```xml
 <profile>
@@ -197,7 +252,7 @@ mvn clean deploy -Dmaven.test.skip=true
 </profile>
 ```
 
-和
+激活 profile
 
 ```xml
 <activeProfiles>
