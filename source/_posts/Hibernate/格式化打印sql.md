@@ -5,7 +5,6 @@ categories:
 tags:
   - spring-boot
   - Hibernate
-  - sql
 abbrlink: 723691b5
 date: 2017-07-26 15:47:36
 ---

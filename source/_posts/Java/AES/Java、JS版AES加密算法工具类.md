@@ -14,7 +14,11 @@ date: 2018-02-18 12:43:30
     AES是一个对称分组密码算法，旨在取代DES成为广泛使用的标准。根据使用的密码长度，AES最常见的有3种方案，用以适应不同的场景要求，分别是AES-128、AES-192和AES-256。
     Java中的PKCS5Padding和Javascript中的PKCS7Padding的结果是一样。
 
+
+
 <!-- more -->
+
+
 
 ## Java 版 AES 工具类
 ```java

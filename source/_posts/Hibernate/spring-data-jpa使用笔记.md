@@ -5,8 +5,6 @@ categories:
 tags:
   - spring-boot
   - Hibernate
-  - sql
-  - criteria
 abbrlink: 43f916ea
 date: 2017-08-01 09:21:36
 ---
@@ -17,8 +15,14 @@ date: 2017-08-01 09:21:36
 ```java
 Pageable pageable = new PageRequest(0, 10);
 ```
+
+
 <!-- more -->
+
+
+
 查看`org.springframework.data.domain.PageRequest`源码可知，分页从0开始
+
 ```java
 public Pageable first() {
     return new PageRequest(0, this.getPageSize(), this.getSort());

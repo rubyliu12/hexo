@@ -16,7 +16,7 @@ curl http://www.baidu.com?q=xxxx
 ```
 ## POST 请求
 ```bash
-curl http://10.121.2.35/weixin_v3/w?urlToken=wxmanager -XPOST -d "send message..."
+curl http://ip:port/weixin_v3/w -XPOST -d "send message..."
 ```
 ## 发送 POST JSON 请求
 ```bash

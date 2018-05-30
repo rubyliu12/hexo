@@ -25,7 +25,12 @@ Cipher cipher = Cipher.getInstance("RSA", "BC");
 ```
 还有一种写法是要替换jdk的jar包，不推荐
 
+
+
 <!-- more -->
+
+
+
 # 要依赖bcprov-jdk16包
 ```xml
 <dependency>

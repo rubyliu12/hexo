@@ -4,14 +4,14 @@ categories:
   - Hibernate
 tags:
   - Hibernate
-  - sql
+  - logback
 abbrlink: 9eea8fb4
 date: 2017-07-26 15:47:36
 ---
 以下是 logback 的日志输出配置，只要是在 logback 的配置文件中添加以下配置
 ```xml
 <!-- show parameters for hibernate sql 专为 Hibernate 定制 -->
- <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
+<logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
 ```
 <!-- more -->
 完整的 logback 配置如下

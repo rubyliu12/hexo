@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Forever杨
+title: forever杨
 subtitle: I want to be forever young!<br/>Coding make me happy.
 description:
-author: Forever杨
+author: forever杨
 # email: bu.ru@qq.com #联系邮箱
-language: zh-Hans
+language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
@@ -87,8 +87,8 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-# theme: hexo-theme-yilia
-theme: hexo-theme-next
+# theme: hexo-theme-next
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -146,3 +146,12 @@ archive_generator:
 
 tag_generator:
   per_page: 10
+##################################
+# Post wordcount display settings
+# Dependencies: https://github.com/theme-next/hexo-symbols-count-time
+##################################
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: false

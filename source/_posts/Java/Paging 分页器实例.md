@@ -8,7 +8,14 @@ abbrlink: 30063ce8
 date: 2017-05-30 09:33:35
 ---
 # Java中实现一个分页器
+简单封装一个分页实例
+
+
+
 <!-- more -->
+
+
+
 ```java
 import java.io.Serializable;
 import java.util.ArrayList;

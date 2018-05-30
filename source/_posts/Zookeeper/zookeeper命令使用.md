@@ -2,7 +2,8 @@
 title: zookeeper 命令使用
 categories:
   - zookeeper
-tags: []
+tags:
+  - zookeeper
 abbrlink: 56017bc5
 date: 2018-04-28 09:35:05
 ---
