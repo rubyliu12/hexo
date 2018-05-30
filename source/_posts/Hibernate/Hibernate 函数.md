@@ -4,11 +4,6 @@ categories:
   - Hibernate
 tags:
   - Hibernate
-  - Java
-  - JAP
-  - spring-boot
-  - HQL
-  - Oracle
 abbrlink: 35958b11
 date: 2018-05-30 09:21:36
 ---
