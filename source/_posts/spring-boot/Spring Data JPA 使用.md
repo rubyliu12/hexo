@@ -1,5 +1,5 @@
 ---
-title: spring jpa page
+title: Spring Data JPA 使用
 categories:
   - Java
 tags:
@@ -8,6 +8,8 @@ tags:
 abbrlink: 6cc2492a
 date: 2017-09-11 14:11:20
 ---
+
+
 总记录数
 getTotalElements ---> 21
 
@@ -25,3 +27,4 @@ getNumberOfElements ---> 3
 
 每页记录数
 getSize ---> 3
+

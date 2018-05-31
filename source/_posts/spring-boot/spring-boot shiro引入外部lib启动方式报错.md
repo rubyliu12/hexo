@@ -1,5 +1,5 @@
 ---
-title: spring-boot shiro引入外部lib启动方式报错
+title: spring-boot shiro 引入外部lib启动方式报错
 categories:
   - Java
 tags:
@@ -11,10 +11,6 @@ date: 2018-02-05 15:34:07
 
 打包方式
 ```xml
-<!--<plugin>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-maven-plugin</artifactId>
-</plugin>-->
 <!-- 外部 lib 打包方式 -->
 <plugin>
     <groupId>org.springframework.boot</groupId>
@@ -51,8 +47,14 @@ date: 2018-02-05 15:34:07
         </execution>
     </executions>
 </plugin>
-<!-- 外部 lib 打包方式 -->
 ```
+
+
+
+<!-- more -->
+
+
+
 
 启动脚本
 ```shell

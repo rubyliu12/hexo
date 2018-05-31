@@ -1,5 +1,5 @@
 ---
-title: spring boot issues
+title: spring boot 使用注意事项
 categories:
   - Java
 tags:
@@ -18,6 +18,10 @@ spring-boot-starter-parent切换回1.5.2.RELEASE版本
 `java.lang.NoSuchMethodError: org.springframework.data.repository.config.AnnotationRepositoryConfigurationSource.<init>`异常
 
 请查看[https://github.com/spring-projects/spring-boot/issues/9606](https://github.com/spring-projects/spring-boot/issues/9606)
+
+
+
+<!-- more -->
 
 
 

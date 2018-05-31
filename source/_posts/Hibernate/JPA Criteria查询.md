@@ -19,6 +19,11 @@ date: 2017-07-30 09:21:36
 ```java
 CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 ```
+
+
+<!-- more -->
+
+
 ## CriteriaQuery 安全查询主语句
 
 `CriteriaQuery`对象必须在实体类型或嵌入式类型上的`Criteria`查询上起作用。它通过调用 `CriteriaBuilder.createQuery`或`CriteriaBuilder.createTupleQuery`等获得。

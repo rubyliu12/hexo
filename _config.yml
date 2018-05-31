@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: forever杨
-subtitle: I want to be forever young!<br/>Coding make me happy.
-description:
+title: forever杨's Blog
+subtitle: I want to be forever young!
+description: 开心又过一日，唔开心又过一日
 author: forever杨
 # email: bu.ru@qq.com #联系邮箱
 language: zh-CN
@@ -32,7 +32,7 @@ root: /
 # 后期不管怎么修改内容，链接永久都不会变。除非把文章中的 abbrlink 删掉，才会从新生成一个 abbrlink
 # addrlink ---> npm install hexo-abbrlink --save
 ##################################
-permalink: post/:abbrlink.html
+permalink: posts/:abbrlink.html
 abbrlink:
   alg: crc32  # 算法：crc16(default) and crc32
   rep: hex    # 进制：dec(default) and hex

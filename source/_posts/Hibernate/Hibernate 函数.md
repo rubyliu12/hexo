@@ -34,6 +34,8 @@ HQL(Hibernate Query Language) 提供了丰富的、灵活的查询特性，提�
 
 
 
+
+
 # 字符串函数
 
 | 函数名称                   | 说明           | 支持       | 使用方法 | 备注 |
@@ -47,6 +49,8 @@ HQL(Hibernate Query Language) 提供了丰富的、灵活的查询特性，提�
 
 
 
+
+
 # 数学函数
 
 | 函数名称    | 说明     | 支持       | 使用方法                                         | 备注           |
@@ -54,6 +58,8 @@ HQL(Hibernate Query Language) 提供了丰富的、灵活的查询特性，提�
 | ABS(n)      | 取绝对值 | JPAQL、HQL | ABS(col_name[数字类型对象属性])                  |                |
 | SQRT(n)     | 取平方根 | JPAQL、HQL | SQRT(col_name[数字类型对象属性])                 |                |
 | MOD(n1, n2) | 取余数   | JPAQL、HQL | MOD([对象属性(数字)或值],[对象属性（数字）或值]) | 数字必须是整型 |
+
+
 
 
 
@@ -69,5 +75,6 @@ HQL(Hibernate Query Language) 提供了丰富的、灵活的查询特性，提�
 | MAXELEMENT(c) | 返回集合中最大元素   | HQL          |          |      |
 | MININDEX(c)   | 返回索引集合最小索引 | HQL          |          |      |
 | MAXINDEX(c)   | 返回索引集合最大索引 | HQL          |          |      |
+
 
 
