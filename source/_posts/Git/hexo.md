@@ -1,9 +1,9 @@
 ---
 title: hexo初体验
 categories:
-  - Github
+  - Git
 tags:
-  - Github
+  - Git
   - hexo
 abbrlink: 2dba5ee9
 date: 2017-07-07 08:36:56

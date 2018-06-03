@@ -1,13 +1,14 @@
 ---
-title: git使用
+title: git 使用
 categories:
-  - Github
+  - Git
 tags:
-  - git
+  - Git
 abbrlink: 4896de77
 date: 2017-07-07 08:35:33
 ---
 # git初始使用
+
 
 ### 基本命令
 ```sh

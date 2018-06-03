@@ -1,9 +1,9 @@
 ---
 title: hexo github ignorecase
 categories:
-  - Github
+  - Git
 tags:
-  - Github
+  - Git
   - hexo
 abbrlink: 18219b06
 date: 2018-02-06 10:42:14
