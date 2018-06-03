@@ -238,13 +238,17 @@
           {% endif %}
 
           {% if not is_index and theme.busuanzi_count.enable and theme.busuanzi_count.post_views %}
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            {% if not theme.post_meta.item_text %} title="{{ __('post.views') }}" {% endif %}>
-            <i class="fa fa-{{ theme.busuanzi_count.post_views_icon }}"></i>
-            {% if theme.post_meta.item_text %} {{__('post.views') + __('symbol.colon') }} {% endif %}
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
+            <div class="post-busuanzi" style="display: inline-block">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon"
+              {% if not theme.post_meta.item_text %} title="{{ __('post.views') }}" {% endif %}>
+                <i class="fa fa-{{ theme.busuanzi_count.post_views_icon }}"></i>
+              </span>
+              {% if theme.post_meta.item_text %}
+                <span class="post-meta-item-text">{{ __('post.views') }}</span>
+              {% endif %}
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </div>
           {% endif %}
 
           {% if config.symbols_count_time.symbols or config.symbols_count_time.time %}

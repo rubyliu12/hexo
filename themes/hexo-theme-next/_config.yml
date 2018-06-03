@@ -202,12 +202,12 @@ avatar:
   # in site  directory(source/uploads): /uploads/avatar.gif
   # You can also use other linking images.
   url: /avatar.jpg #/images/avatar.gif
-  # If true, the avatar would be dispalyed in circle. 
+  # If true, the avatar would be dispalyed in circle.
   rounded: true
   # The value of opacity should be choose from 0 to 1 to set the opacity of the avatar.
   opacity: 1
   # If true, the avatar would be rotated with the cursor.
-  rotated: false
+  rotated: true
 
 # Table Of Contents in the Sidebar
 toc:
@@ -670,7 +670,7 @@ firestore:
 # Show Views/Visitors of the website/page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
 busuanzi_count:
-  enable: false
+  enable: true
   total_visitors: true
   total_visitors_icon: user
   total_views: true
