@@ -2,9 +2,7 @@
 title: mysql for mac 使用
 categories:
   - mysql
-tags:
-  - mysql
-  - mac
+tags: []
 abbrlink: 4ae0cbaa
 date: 2018-05-25 09:35:05
 ---

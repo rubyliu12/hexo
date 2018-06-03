@@ -3,7 +3,6 @@ title: pagehelper 使用笔记
 categories:
   - mybatis
 tags:
-  - mybatis
   - pagehelper
 abbrlink: 4f0d5500
 date: 2017-08-01 09:21:36

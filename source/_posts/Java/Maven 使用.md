@@ -3,7 +3,6 @@ title: Maven 使用
 categories:
   - Java
 tags:
-  - Java
   - Maven
 abbrlink: e3a1de67
 date: 2017-06-19 14:11:20

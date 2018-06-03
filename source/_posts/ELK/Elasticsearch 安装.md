@@ -3,7 +3,6 @@ title: elasticsearch 安装配置
 categories:
   - ELK
 tags:
-  - ELK
   - elasticsearch
 abbrlink: 4c158d
 date: 2017-03-21 15:47:36

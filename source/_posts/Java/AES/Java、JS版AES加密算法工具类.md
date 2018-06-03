@@ -3,7 +3,6 @@ title: Java、JS版AES加密算法工具类
 categories:
   - Java
 tags:
-  - Java
   - Javascript
   - AES
 abbrlink: 1f7e0ef5

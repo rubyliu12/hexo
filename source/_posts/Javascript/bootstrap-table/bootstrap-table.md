@@ -3,7 +3,6 @@ title: bootstrap-table 的使用问题
 categories:
   - Javascript
 tags:
-  - Javascript
   - bootstrap
   - bootstrap-table
 abbrlink: b2990e54

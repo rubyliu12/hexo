@@ -1,9 +1,9 @@
 ---
 title: hibernate格式化输出sql语句（spring-data-jpa）
 categories:
-  - Hibernate
+  - Java
 tags:
-  - spring-boot
+  - spring-data-jpa
   - Hibernate
 abbrlink: 723691b5
 date: 2017-07-26 15:47:36

@@ -1,7 +1,7 @@
 ---
 title: Hibernate 函数
 categories:
-  - Hibernate
+  - Java
 tags:
   - Hibernate
 abbrlink: 35958b11

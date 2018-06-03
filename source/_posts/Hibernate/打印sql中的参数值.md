@@ -1,7 +1,7 @@
 ---
 title: hibernate显示sql中的参数值（logback）
 categories:
-  - Hibernate
+  - Java
 tags:
   - Hibernate
   - logback

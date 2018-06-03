@@ -2,8 +2,7 @@
 title: Tomcat 启动脚本
 categories:
   - Tomcat
-tags:
-  - shell
+tags: []
 abbrlink: e22f47ab
 date: 2018-02-06 09:35:05
 ---

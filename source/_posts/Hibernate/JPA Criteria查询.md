@@ -1,12 +1,9 @@
 ---
 title: JPA Criteria 查询
 categories:
-  - Hibernate
+  - Java
 tags:
-  - spring-boot
   - Hibernate
-  - sql
-  - criteria
 abbrlink: 6202485a
 date: 2017-07-30 09:21:36
 ---

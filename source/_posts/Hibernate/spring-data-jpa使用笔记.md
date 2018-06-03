@@ -1,9 +1,9 @@
 ---
 title: spring-data-jpa 使用笔记
 categories:
-  - spring-data-jpa
+  - Java
 tags:
-  - spring-boot
+  - spring-data-jpa
   - Hibernate
 abbrlink: 43f916ea
 date: 2017-08-01 09:21:36

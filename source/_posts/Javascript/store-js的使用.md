@@ -3,7 +3,6 @@ title: store.js的使用
 categories:
   - Javascript
 tags:
-  - Javascript
   - localStorage
   - store.js
 abbrlink: 78a81828

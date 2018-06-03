@@ -3,7 +3,6 @@ title: kibana安装配置
 categories:
   - ELK
 tags:
-  - ELK
   - kibana
 abbrlink: 33aa0af8
 date: 2017-03-21 15:46:22

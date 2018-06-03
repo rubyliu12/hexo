@@ -1,6 +1,7 @@
 ---
 title: 阿里巴巴druid连接池配置介绍
-categories: Java
+categories:
+  - Java
 tags:
   - druid
   - DataSource

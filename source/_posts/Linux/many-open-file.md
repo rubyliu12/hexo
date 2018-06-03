@@ -1,6 +1,7 @@
 ---
 title: linux many open file问题排查
-categories: Linux
+categories:
+  - Linux
 tags: []
 abbrlink: 5618a78c
 date: 2017-07-07 08:51:38

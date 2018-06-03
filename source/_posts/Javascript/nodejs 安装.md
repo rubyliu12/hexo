@@ -1,5 +1,5 @@
 ---
-title: nodejs安装
+title: nodejs 安装
 categories:
   - Javascript
 tags:

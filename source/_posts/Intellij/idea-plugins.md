@@ -2,9 +2,7 @@
 title: IntelliJ IDEA 插件
 categories:
   - Intellij
-tags:
-  - IDE
-  - plugins
+tags: []
 abbrlink: b7ca9e0f
 date: 2017-06-01 14:07:09
 ---

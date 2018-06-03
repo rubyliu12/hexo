@@ -3,8 +3,7 @@ title: IntelliJ IDEA 插件
 categories:
   - Intellij
 tags:
-  - IDE
-  - maven
+  - Maven
 abbrlink: b7ca9e0f
 date: 2017-08-02 11:07:09
 ---
