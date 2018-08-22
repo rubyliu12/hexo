@@ -54,7 +54,9 @@ touch README.md
 git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/xxx/xxxx.git
+# git pull --allow-unrelated-histories
 git push -u origin master
+# git push --set-upstream origin master
 ```
 已有项目?
 ```bash

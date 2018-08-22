@@ -106,6 +106,13 @@ date: 2018-04-08 09:11:20
     <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>repackage</goal>
+                </goals>
+            </execution>
+        </executions>
         <configuration>
             <layout>WAR</layout>
             <includes>

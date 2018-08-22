@@ -10,21 +10,26 @@ date: 2017-09-11 14:11:20
 ---
 
 
-总记录数
-getTotalElements ---> 21
 
-总页数
-getTotalPages ---> 7
+# Page<T>
 
-查询记录列表
-getContent ---> [User(id=1, name=AAA, age=20, status=DEFAULT, createDate=null, addressId=2), User(id=2, name=AAA, age=20, status=DEFAULT, createDate=null, addressId=null), User(id=3, name=AAA, age=20, status=DEFAULT, createDate=null, addressId=null)]
+| 函数                | 描述               | 备注 |
+| ------------------- | ------------------ | ---- |
+| getTotalElements    | 总记录数           |      |
+| getTotalPages       | 总页数             |      |
+| getContent          | 查询记录列表       |      |
+| getNumber           | 当前页数，从0开始  |      |
+| getNumberOfElements | 当前页码中的记录数 |      |
+| getSize             | 每页记录数         |      |
 
-当前页数，从0开始
-getNumber ---> 0
 
-当前页码中的记录数
-getNumberOfElements ---> 3
 
-每页记录数
-getSize ---> 3
+# Modifying注解
 
+（1）可以通过自定义的 JPQL 完成 UPDATE 和 DELETE 操作。 注意： JPQL 不支持使用 INSERT
+
+（2）在 @Query 注解中编写 JPQL 语句， 但必须使用 @Modifying 进行修饰. 以通知 Spring Data， 这是一个 UPDATE 或 DELETE 操作
+
+（3）UPDATE 或 DELETE 操作需要使用事务，此时需要定义 Service 层，在 Service 层的方法上添加事务操作
+
+（4）默认情况下， Spring Data 的每个方法上有事务， 但都是一个只读事务。 他们不能完成修改操作

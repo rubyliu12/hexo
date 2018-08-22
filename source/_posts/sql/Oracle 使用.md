@@ -1,9 +1,9 @@
 ---
-title: Oracle使用
+title: Oracle 使用
 categories:
-  - sql
+  - Oracle
 tags:
-  - oracle
+  - 
 abbrlink: db736859
 date: 2018-04-08 17:01:05
 ---

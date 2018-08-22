@@ -29,6 +29,8 @@ spring-boot-starter-parent切换回1.5.2.RELEASE版本
 
 > 外部 Tomcat 等容器部署war，要继承 SpringBootServletInitializer 类
 
+war部署要重写SpringBootServletInitializer的configure方法，可以不要main方法，main方法是jar部署时候会执行的
+
 ```java
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -36,15 +38,15 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class OutserverApplication extends SpringBootServletInitializer {
+public class App extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(OutserverApplication.class);
+        return application.sources(App.class);
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(OutserverApplication.class, args);
+        SpringApplication.run(App.class, args);
     }
 }
 ```
@@ -111,7 +113,7 @@ public class MyConfiguration　{
                 
             }
             // ...
-        }
+        };
     }
 }
 ```
@@ -128,8 +130,6 @@ public class MyConfiguration　{
 在参数前面使用`org.springframework.validation.annotation.Validated`注解，或者`javax.validation.Valid`注解均可
 
 ```java
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -144,27 +144,19 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ApiModel
 public class MarketRebateDTO implements Serializable {
-    @ApiModelProperty(value = "营销活动Id", required = true)
     @NotBlank(message = "营销活动 Id 不能为空")
     @Length(min = 5, max = 8, message = "营销活动 Id[${validatedValue}] 长度必须在 {min} 和 {max} 之间")
     private String marketCfgId;
 
-    @ApiModelProperty(value = "产品号", required = true)
     private String productNo;
 
-    @ApiModelProperty(value = "返利金额/代金券面值", required = true)
     private String rebateAmt;
 
-    @ApiModelProperty(value = "营销活动Id", required = true)
     private String tradeType;
 }
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -180,18 +172,12 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/api/market")
-@Api(tags = "market", description = "营销返利接口")
 public class MarketController extends BaseRestController {
     @Reference
     private MarketService marketService;
 
     @PostMapping("/rebate")
-    @RequiresPermissions("api:market:rebate")
-    @ApiOperation(value = "营销返利受理")
     public BaseResponse rebate(@RequestBody @Valid MarketRebateDTO rebate) throws CoreException, OkHttpException {
-        // if (rebate == null) {
-        //     return new BaseResponse("-99", "参数为空");
-        // }
         return marketService.doRebate(rebate);
     }
 }
@@ -232,11 +218,6 @@ public MethodValidationPostProcessor methodValidationPostProcessor() {
 }
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -252,19 +233,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/csp")
-@Api(tags = "csp", description = "csp 接口平台")
 @Validated
 public class CspController extends BaseRestController {
     @Reference
     private CspService cspService;
 
     @GetMapping
-    @RequiresPermissions("api:csp:get")
-    @ApiOperation(value = "csp 接口-查询")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "func", value = "组件名", required = true, paramType = "query"),
-            @ApiImplicitParam(name = "param", value = "参数值", required = true, paramType = "query")
-    })
     public BaseResponse get(@RequestParam
                             @NotBlank(message = "组件名不能为空")
                                     String func,
