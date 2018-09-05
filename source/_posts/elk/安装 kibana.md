@@ -1,7 +1,7 @@
 ---
-title: kibana安装配置
+title: 安装、配置 kibana
 categories:
-  - ELK
+  - elk
 tags:
   - kibana
 abbrlink: 33aa0af8

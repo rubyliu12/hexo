@@ -116,9 +116,12 @@ man firewall-cmd                               ##查看帮助
 
 重启、关闭、开启`firewalld`服务
 ```sh
-systemctl restart firewalld #重启
-systemctl start firewalld #开启
-systemctl stop firewalld #关闭
+systemctl start firewalld                      # 启动
+systemctl stop firewalld                       # 关闭
+systemctl restart firewalld                    # 重启
+
+systemctl enable firewalld                     # 开机启动
+systemctl disable firewalld                    # 取消开机启动
 ```
 
 ### 四、CentOS切换为iptables防火墙

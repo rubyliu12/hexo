@@ -1,13 +1,13 @@
 ---
-title: elasticsearch 安装配置
+title: 安装、配置 Elasticsearch
 categories:
-  - ELK
+  - elk
 tags:
   - elasticsearch
 abbrlink: 4c158d
 date: 2017-03-21 15:47:36
 ---
-### 一、安装Elasticsearch
+### 安装Elasticsearch
 - 下载并安装 .zip 包
 ```sh
 wget https://artifacts.elastic.cn/downloads/elasticsearch/elasticsearch-5.0.2.zip
@@ -23,12 +23,11 @@ tar -zxvf elasticsearch-5.0.2.tar.gz
 cd elasticsearch-5.0.2/
 ```
 
-
 <!-- more -->
 
 
 
-### 二、运行 Elasticsearch
+### 运行 Elasticsearch
 ```
 ./bin/elasticsearch
 ```
@@ -45,7 +44,7 @@ Window 系统也是一样。默认的，Elasticsearch 运行在前台，并且�
 kill 'cat pid'
 ```
 
-### 三、配置 Elasticsearch
+### 配置 Elasticsearch
 Elasticsearch 默认从 $ES_HOME/config/elasticsearch.yml 加载配置文件。  
 配置文件中的配置都可以通过命令来设定，使用 -E 语法：
 ```

@@ -13,8 +13,6 @@ date: 2018-08-18 14:47:17
 
 A Java implementation of Facebook's bigPipe technology.
 
-
-
 JPipe是通过自定义标签实现的，所以对后端代码零侵入。
 
 > HTML 是完成前台页面的功能，而自定义标签可以在后台完成某些操作。
@@ -24,8 +22,6 @@ JPipe 提供了多线程模式、单线程模式、和混合模式3种使用方�
 
 > 出于降低后期维护性，这里不打算使用 PageletService 可配置方法，即是在 pagelet 标签增加 method 属性以自定义要执行的函数。
 > 统一使用 doGet 函数，只要找到对应的 bean 即可，不用参照前端代码去搜找要执行的函数。
-
-
 
 ## 特性
 

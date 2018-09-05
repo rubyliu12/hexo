@@ -7,8 +7,6 @@ tags:
 abbrlink: 47aa1712
 date: 2017-09-11 14:11:20
 ---
-
-
 ## 兼容问题
 
 spring-boot-starter-parent切换回1.5.2.RELEASE版本
