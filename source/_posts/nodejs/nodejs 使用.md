@@ -57,7 +57,7 @@ npm --registry https://registry.npm.taobao.org/ info underscore
 
 可以通过修改nodejs安装路径下的node_modules/npm/.npmrc文件
 prefix=D:\MyTools\nodejs\node_global （修改全局路径）
-cache=D:\MyTools\nodejs\node_global_cache （修改全局路径）
+cache=D:\MyTools\nodejs\node_cache （修改全局路径）
 
 请注意prefix、cache不能设置成一样的路径，否则通过npm安装模块时，会报错
 
@@ -69,12 +69,33 @@ cache=D:\MyTools\nodejs\node_global_cache （修改全局路径）
 # -S 是--save 的缩写，它可以让你安装的模块记录到package.json文件当中
 npm install -S xxx
 
-# 这是删除模块，也可以删除全局看模块
+# 这是删除模块，也可以删除全局模块
 npm uninstall xxx
 npm uninstall -g xxx
 
 # -D就是--save-dev 这样安装的包的名称及版本号就会存在package.json的devDependencies这个里面，而--save会将包的名称及版本号放在dependencies里面
 npm install -D xxx
 
+```
+
+
+
+# npm registry 设置
+
+```shell
+$ npm install -g nrm
+$ nrm ls
+D:\Workspace\vuejs-project>nrm ls
+
+* npm ---- https://registry.npmjs.org/
+  cnpm --- http://r.cnpmjs.org/
+  taobao - https://registry.npm.taobao.org/
+  nj ----- https://registry.nodejitsu.com/
+  rednpm - http://registry.mirror.cqupt.edu.cn/
+  npmMirror  https://skimdb.npmjs.com/registry/
+  edunpm - http://registry.enpmjs.org/
+# 切换源
+$ nrm use taobao
+Registry has been set to: https://registry.npm.taobao.org/
 ```
 

@@ -17,18 +17,13 @@ JPipe是通过自定义标签实现的，所以对后端代码零侵入。
 
 > HTML 是完成前台页面的功能，而自定义标签可以在后台完成某些操作。
 
-JPipe 提供了多线程模式、单线程模式、和混合模式3种使用方式。
 
-
-> 出于降低后期维护性，这里不打算使用 PageletService 可配置方法，即是在 pagelet 标签增加 method 属性以自定义要执行的函数。
-> 统一使用 doGet 函数，只要找到对应的 bean 即可，不用参照前端代码去搜找要执行的函数。
 
 ## 特性
 
-- jsp 标签支持（已实现），demo：jpipe-demo-jsp
-- freemarker 指令支持（未实现）
-- freemarker 中使用 jsp 标签（已实现），demo：jpipe-demo-freemarker-jsp
-- thymeleaf 方言支持（未实现）
+- jsp 标签支持
+- freemarker 指令支持
+- freemarker 中使用 jsp 标签
 
 
 
@@ -37,26 +32,151 @@ JPipe 提供了多线程模式、单线程模式、和混合模式3种使用方�
 
 
 ## 开始
-### JSP 标签
-#### Maven 依赖
+
+### 线程池配置
+
+| 属性                       | 类型    | 是否必填 | 缺省值 | 说明             | 描述                                                         |
+| -------------------------- | ------- | -------- | ------ | ---------------- | ------------------------------------------------------------ |
+| core-size                  | int     | 否       | -1     | 核心线程数       | 最小空闲线程数，无论如何都会存活的最小线程数                 |
+| max-size                   | int     | 否       | 1024   | 最大线程数       | JPipe 能创建用来处理 pagelet 的最大线程数                    |
+| queue-size                 | int     | 否       | 1024   | 最大等待对列数   | 请求并发大于 max-size，则被放入队列等待                      |
+| keep-alive                 | long    | 否       | 60000  | 最大空闲时间(ms) | 超过这个空闲时间，且线程数大于 core-size 的，被回收直到线程数等于core-size |
+| pre-start-all-core-threads | boolean | 否       | false  | 预热线程池       | 是否预先启动 core-size 个线程                                |
+
+  
+
+### pepe 标签、指令
+
+| 属性  | 类型    | 是否必填 | 缺省值 | 说明                    | 描述 |
+| ----- | ------- | -------- | ------ | ----------------------- | ---- |
+| async | boolean | 否       | true   | 是否异步执行pagelet任务 |      |
+
+
+
+### pagelet 标签、指令
+
+| 属性       | 类型   | 是否必填 | 缺省值  | 说明             | 描述 |
+| ---------- | ------ | -------- | ------- | ---------------- | ---- |
+| domId      | string | 是       |         | html document Id |      |
+| templateId | string | 否       |         | 模版Id           |      |
+| bean       | string | 是       |         | spring bean name |      |
+| jsMethod   | string | 否       | JP.view | 要执行js函数     |      |
+
+
+
+### param 标签、指令
+
+| 属性  | 类型   | 是否必填 | 缺省值 | 说明   | 描述 |
+| ----- | ------ | -------- | ------ | ------ | ---- |
+| name  | string | 是       |        | 参数名 |      |
+| value | string | 否       |        | 参数值 |      |
+
+
+
+### 与Spring集成
+
+- 通过`JPipeThreadPoolFactoryBean`类
+
 ```xml
-<dependency>
-    <groupId>cn.tisson.jpipe</groupId>
-    <artifactId>jpipe-jsp</artifactId>
-    <version>{version}</version>
-</dependency>
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="top.ylonline.jpipe.spring.JPipeSpringFactoryBean"/>
+    
+    <bean id="pool-1" class="top.ylonline.jpipe.threadpool.common.Pool">
+        <property name="coreSize" value="-1"/>
+        <property name="maxSize" value="20"/>
+        <property name="preStartAllCoreThreads" value="false"/>
+        <property name="keepAlive" value="12000000"/>
+        <property name="queueSize" value="500"/>
+    </bean>
+
+    <!-- 工场模式 -->
+    <bean class="top.ylonline.jpipe.threadpool.util.JPipeThreadPoolFactoryBean">
+        <property name="pool" ref="pool-1"/>
+    </bean>
+
+    <!-- 或者 
+    <bean class="top.ylonline.jpipe.threadpool.util.JPipeThreadPoolFactoryBean">
+        <property name="pool">
+            <bean class="top.ylonline.jpipe.threadpool.common.Pool">
+                <property name="coreSize" value="4"/>
+                <property name="maxSize" value="10"/>
+                <property name="preStartAllCoreThreads" value="true"/>
+                <property name="keepAlive" value="60000"/>
+                <property name="queueSize" value="500"/>
+            </bean>
+        </property>
+    </bean>
+	-->
+</beans>
 ```
 
 
-#### Service 层实现 PageletService 接口的 doGet 方法
 
-这里的 `@Pagelet` 可以使用 Spring 的 `@Service` 代替
+- 通过`JPipeThreadPoolBuilder`类
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="top.ylonline.jpipe.spring.JPipeSpringFactoryBean"/>
+    
+    <!-- builder 模式 -->
+    <bean id="jPipeThreadPoolBuilder" class="top.ylonline.jpipe.threadpool.util.JPipeThreadPoolBuilder">
+        <property name="pool">
+            <bean class="top.ylonline.jpipe.threadpool.common.Pool">
+                <property name="coreSize" value="1"/>
+                <property name="maxSize" value="1"/>
+                <property name="preStartAllCoreThreads" value="true"/>
+                <property name="keepAlive" value="1"/>
+                <property name="queueSize" value="1"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="jPipeThreadPool-3" factory-bean="jPipeThreadPoolBuilder" factory-method="build"/>
+</beans>
+```
+
+- 通过 JavaBean 方式
+
 ```java
-@Pagelet("t_pagelet_one")
-public class TestPagelet1 implements PageletService {
+@Bean
+public JPipeSpringFactoryBean PipeSpringFactoryBean(){
+    return new JPipeSpringFactoryBean();
+}
+
+@Bean
+public JPipeThreadPoolExecutor jPipeThreadPoolExecutor() {
+    Pool pool = new Pool();
+    pool.setCoreSize(10);
+    pool.setMaxSize(1024);
+    pool.setPreStartAllCoreThreads(true);
+    pool.getKeepAlive(60000);
+    pool.getQueueSize(512);
+    // return new EagerThreadPool().getExecutor(pool);
+    return new JPipeThreadPoolBuilder(pool).build();
+}
+```
+
+
+
+### 定义一个 pagelet
+
+使用 Spring 的 `@Service` 定义一个pagelet，实现 PageletBean 接口的 doExec 方法
+
+```java
+@Service("t_pagelet_1")
+public class PageletServiceTest implements PageletBean {
 
     @Override
-    public Map<String, Object> doGet(Map<String, String> params) {
+    public Map<String, Object> doExec(Map<String, String> params) {
         Map<String, Object> data = new HashMap<>(params);
         try {
             TimeUnit.MILLISECONDS.sleep(new Random().nextInt(5000));
@@ -69,13 +189,14 @@ public class TestPagelet1 implements PageletService {
 ```
 
 
-#### index.jsp 代码
 
-- 引入标签 `<%@ taglib prefix="jp" uri="http://java.tisson.cn/tags/jsp/jpipe" %>`
+### JSP 标签
+
+- 引入标签 `<%@ taglib prefix="jp" uri="http://java.yl-online.top/jsp/jpipe" %>`
 - 使用自定义标签，最好放到`</body>`上面，这样就不会堵塞首屏dom的渲染
 ```html
 <%@ page contentType="text/html;charset=UTF-8" trimDirectiveWhitespaces="true" %>
-<%@ taglib prefix="jp" uri="http://java.tisson.cn/tags/jsp/jpipe" %>
+<%@ taglib prefix="jp" uri="http://java.yl-online.top/jsp/jpipe" %>
 <html>
 <head>
     <title>index</title>
@@ -118,14 +239,14 @@ public class TestPagelet1 implements PageletService {
 </head>
 <body>
 <h1>index</h1>
-<div id="t_pagelet_1">JPipe 分块会替换这里的内容 1</div>
-<div id="t_pagelet_2">JPipe 分块会替换这里的内容 2</div>
+<div id="pagelet1">JPipe 分块会替换这里的内容 1</div>
+<div id="pagelet2">JPipe 分块会替换这里的内容 2</div>
 <jp:pipe>
-    <jp:pagelet domId="t_pagelet_1" bean="t_pagelet_one">
+    <jp:pagelet domId="pagelet1" bean="t_pagelet_1">
         <jp:param name="id" value="${id}"/>
         <jp:param name="name" value="${name}"/>
     </jp:pagelet>
-    <jp:pagelet domId="t_pagelet_2" bean="t_pagelet_one">
+    <jp:pagelet domId="pagelet2" bean="t_pagelet_2">
         <jp:param name="id" value="年级信息"/>
         <jp:param name="name" value="班级信息"/>
         <jp:param name="age">21</jp:param>
@@ -139,15 +260,67 @@ public class TestPagelet1 implements PageletService {
 
 
 ### FTL 指令
+- 通过 freemarker Configuration 配置命名空间
 
-未实现
-#### Maven 依赖
-```xml
-<dependency>
-    <groupId>cn.tisson.jpipe</groupId>
-    <artifactId>jpipe-freemarker</artifactId>
-    <version>{version}</version>
-</dependency>
+```java
+@Configuration
+public class MvcWevConfig {
+    @Resource
+    private freemarker.template.Configuration configuration;
+
+    @PostConstruct
+    public void setConfiguration() {
+        Version version = freemarker.template.Configuration.getVersion();
+        DefaultObjectWrapper wrapper = new DefaultObjectWrapperBuilder(version).build();
+        this.configuration.setSharedVariable("jp", new JPipeTags(wrapper));
+    }
+}
+```
+
+
+
+```html
+<@jp.pipe>
+    <@jp.pagelet domId="pagelet1" templateId="templateId1" bean="t_pagelet_1">
+        <@jp.param name="id" value="1" />
+        <@jp.param name="age" value="11" />
+    </@jp.pagelet>
+    <@jp.pagelet domId="pagelet2" templateId="templateId3" bean="t_pagelet_2">
+        <@jp.param name="id" value="3" />
+        <@jp.param name="age" value="33" />
+    </@jp.pagelet>
+</@jp.pipe>
+```
+
+- 通过 assign 指令配置
+
+```html
+<#assign pipe="top.ylonline.jpipe.freemarker.tag.PipeTag"?new() />
+<#assign pagelet="top.ylonline.jpipe.freemarker.tag.PageletTag"?new() />
+<#assign param="top.ylonline.jpipe.freemarker.tag.ParamTag"?new() />
+<html>
+<head>
+    <title>index</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script type="text/javascript" src="jpipe.core.js"></script>
+</head>
+<body>
+<h1>index</h1>
+<div id="pagelet1"></div>
+<div id="pagelet2"></div>
+<@pipe>
+    <@pagelet domId="pagelet1" templateId="templateId1" bean="t_pagelet_1">
+        <@param name="id" value="1" />
+        <@param name="age" value="11" />
+    </@pagelet>
+    <@pagelet domId="pagelet2" templateId="templateId3" bean="t_pagelet_2">
+        <@param name="id" value="3" />
+        <@param name="age" value="33" />
+    </@pagelet>
+</@pipe>
+</body>
+</html>
 ```
 
 
@@ -164,9 +337,9 @@ FTL 是支持使用 JSP 标签的。如果你的项目本来没有使用 JSP 模
 
 #### index.ftl 代码
 
-使用 `<#assign jp=JspTaglibs["http://java.tisson.cn/tags/jsp/jpipe"] />` 引入自定义 JSP 标签
+使用 `<#assign jp=JspTaglibs["http://java.yl-online.top/jsp/jpipe"] />` 引入自定义 JSP 标签
 ```html
-<#assign jp=JspTaglibs["http://java.tisson.cn/tags/jsp/jpipe"] />
+<#assign jp=JspTaglibs["http://java.yl-online.top/jsp/jpipe"] />
 <html>
 <head>
     <title>index</title>
@@ -212,11 +385,11 @@ FTL 是支持使用 JSP 标签的。如果你的项目本来没有使用 JSP 模
 <div id="pagelet1">JPipe 分块会替换这里的内容 1</div>
 <div id="pagelet2">JPipe 分块会替换这里的内容 2</div>
 <@jp.pipe>
-    <@jp.pagelet domId="pagelet1" bean="t_pagelet_one">
+    <@jp.pagelet domId="pagelet1" bean="t_pagelet_1">
         <@jp.param name="id" value="${id}"/>
         <@jp.param name="name" value="${name}"/>
     </@jp.pagelet>
-    <@jp.pagelet domId="pagelet2" bean="t_pagelet_one">
+    <@jp.pagelet domId="pagelet2" bean="t_pagelet_2">
         <@jp.param name="id" value="年级信息"/>
         <@jp.param name="name" value="班级信息"/>
         <@jp.param name="age">21</@jp.param>
@@ -247,7 +420,7 @@ FTL 是支持使用 JSP 标签的。如果你的项目本来没有使用 JSP 模
     <version>2.3.3</version>
 </dependency>
 ```
-由于 undertow 等容器没有 jsp-api 环境，所以需要依赖 javax.servlet.jsp-api 包，同时要通过 TaglibFactory 配置 freemarker 的 classpathTlds。没有这个配置，会报错：freemarker.ext.jsp.TaglibFactory$TaglibGettingException: No TLD was found for the "http://java.tisson.cn/tags/jsp/jpipe" JSP taglib URI. (TLD-s are searched according the JSP 2.2 specification. In development- and embedded-servlet-container setups you may also need the "MetaInfTldSources" and "ClasspathTlds" freemarker.ext.servlet.FreemarkerServlet init-params or the similar system properites.)
+由于 undertow 等容器没有 jsp-api 环境，所以需要依赖 javax.servlet.jsp-api 包，同时要通过 TaglibFactory 配置 freemarker 的 classpathTlds。没有这个配置，会报错：freemarker.ext.jsp.TaglibFactory$TaglibGettingException: No TLD was found for the "http://java.yl-online.top/jsp/jpipe" JSP taglib URI. (TLD-s are searched according the JSP 2.2 specification. In development- and embedded-servlet-container setups you may also need the "MetaInfTldSources" and "ClasspathTlds" freemarker.ext.servlet.FreemarkerServlet init-params or the similar system properites.)
 > Configuration
 
 
@@ -293,8 +466,3 @@ public class MvcWevConfig {
 ```
 由于 Tomcat、Jetty中已经有 jsp-api 环境了，这里不需要再依赖 javax.servlet.jsp-api 包
 
-
-
-### thymeleaf 方言
-
-未实现

@@ -72,8 +72,14 @@ date: 2018-09-05 10:48:48
 - 启动并加入开机启动
 
   ```sh
+  # 启动 docker
   $ sudo systemctl start docker
+  # 停止运行 docker
+  $ sudo systemctl stop docker
+  # 开机启动
   $ sudo systemctl enable docker
+  # 禁止开机启动
+  $ sudo systemctl disable docker
   ```
 
 
@@ -110,14 +116,14 @@ date: 2018-09-05 10:48:48
 - 安装
 
   ```sh
-  sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+  $ sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
   ```
 
 
 - 可执行权限
 
   ```sh
-  sudo chmod +x /usr/local/bin/docker-compose
+  $ sudo chmod +x /usr/local/bin/docker-compose
   ```
 
 
