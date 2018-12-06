@@ -10,6 +10,33 @@ abbrlink: 74b23c9e
 date: 2018-12-04 14:11:20
 ---
 
+
+
+
+
+> 基于`spring-boot` + `spring-session` + `redis` 实现 `session` 共享
+
+# 依赖
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+    <version>${spring-boot-starter-data-redis.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework.session</groupId>
+    <artifactId>spring-session-data-redis</artifactId>
+    <version>${spring-session-data-redis.version}</version>
+</dependency>
+```
+
+
+
+<!-- more -->
+
+
+
 # spring-boot 1.x
 
 ```java
@@ -194,7 +221,7 @@ public class RedisHttpSessionConfig {
    }
 
    // /**
-   //  * HttpSessionIdResolverPackagesUtil
+   //  * HttpSessionIdResolver
    //  * <p>
    //  * {@link SpringHttpSessionConfiguration#setHttpSessionIdResolver(HttpSessionIdResolver)}
    //  */

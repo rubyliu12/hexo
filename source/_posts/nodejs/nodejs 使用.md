@@ -99,3 +99,16 @@ $ nrm use taobao
 Registry has been set to: https://registry.npm.taobao.org/
 ```
 
+
+
+# npm-check检查依赖包版本
+
+```shell
+# 安装 npm-check
+npm install -g npm-check
+# 检查 npm 包版本
+npm-check -u -g
+npm-check -u -S
+npm-check -u -D
+```
+

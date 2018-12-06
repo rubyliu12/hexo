@@ -104,23 +104,30 @@ deploy:
 ######################################################################
 ##################################
 # Dependencies: https://github.com/chenzhutian/hexo-all-minifier
-# npm install hexo-all-minifier --save
+# npm install --save hexo-all-minifier
 ##################################
 html_minifier:
-  enable: false
+  enable: true
   ignore_error: false
+  silent: false
   exclude:
+  minifyCSS: true
+  minifyJS: true
 
 js_minifier:
   enable: true
   mangle: true
-  output:
+  silent: false
+  # output: # 新版 output 不能留空，这个在新的 uglifyjs 里会被当作 null 而不是 undefined
   compress:
-  exclude: '*.min.js'
+  exclude:
+    - '*.min.js'
 
 css_minifier:
   enable: true
-  exclude: '*.min.css'
+  silent: false
+  exclude:
+    - '*.min.css'
 
 image_minifier:
   enable: false
@@ -129,24 +136,29 @@ image_minifier:
   optimizationLevel: 2
   pngquant: false
   progressive: false
+  silent: false
 ##################################
 # 如何设置页面文章的篇数？
 # 在 Hexo 里可以为首页和归档页面设置不同的文章篇数，但可能需要安装 Hexo 插件。详细步骤如下。
 # 使用 npm install --save 命令来安装需要的 Hexo 插件。
-# npm install --save hexo-generator-index
-# npm install --save hexo-generator-archive
-# npm install --save hexo-generator-tag
+# npm install --save hexo-generator-index 首页
+# npm install --save hexo-generator-archive 归档
+# npm install --save hexo-generator-category 分类
+# npm install --save hexo-generator-tag 标签
 ##################################
 index_generator:
-  per_page: 10
+  per_page: 15
 
 archive_generator:
-  per_page: 20
-  yearly: true
-  monthly: true
+  per_page: 0 # 为 0 时表示不分页全展示
+  yearly: false # 按年生成归档
+  monthly: false # 按月生成归档
+
+category_generator:
+  per_page: 0 # 为 0 时表示不分页全展示
 
 tag_generator:
-  per_page: 10
+  per_page: 0 # 为 0 时表示不分页全展示
 ##################################
 # Post wordcount display settings
 # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
