@@ -20,6 +20,10 @@ The Platform will reach the end of its supported life on 9 April 2019. Maintenen
 
 
 
+<!-- more -->
+
+
+
 # spring-boot-starter-parent
 
 ```xml

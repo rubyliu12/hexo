@@ -54,6 +54,12 @@ public @interface EnableJPipeConfiguration {
 }
 ```
 
+
+
+<!-- more -->
+
+
+
 ## JPipeConfigurationRegistrar
 
 > 读取自定义注解配置，注册 bean

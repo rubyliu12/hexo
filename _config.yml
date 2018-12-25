@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: forever杨's Blog
+title: forever杨的个人博客
 subtitle: I want to be forever young!
 description: 开心又过一日，唔开心又过一日
 author: forever杨
@@ -47,7 +47,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - 404.html
-  - google93a7690967fabbb0.html
+  - README.md
 
 # Writing
 # File name of new posts

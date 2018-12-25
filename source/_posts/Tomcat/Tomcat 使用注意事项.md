@@ -9,7 +9,7 @@ date: 2018-05-08 09:35:05
 
 # setenv.sh
 
-在`Tomcat`的`bin`目录下添加`setenv.sh`文件，在启动`Tomcat`的时候，改脚本会被自动执行。一般在改脚本配置一些环境变量、`JVM`参数等
+在`Tomcat`的`bin`目录下添加`setenv.sh`文件，在启动`Tomcat`的时候，该脚本会被自动执行。一般在该脚本配置一些环境变量、`JVM`参数等
 
 ```sh
 # @Author: YL

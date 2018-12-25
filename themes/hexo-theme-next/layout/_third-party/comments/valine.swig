@@ -5,8 +5,8 @@
     {% set valine_uri = theme.vendors.valine %}
   {% endif %}
   <script src="{{ valine_uri }}"></script>
-  
-  <script type="text/javascript">
+
+  <script>
     var GUEST = ['nick','mail','link'];
     var guest = '{{ theme.valine.guest_info }}';
     guest = guest.split(',').filter(function (item) {
@@ -20,8 +20,9 @@
         appKey: '{{ theme.valine.appkey }}',
         placeholder: '{{ theme.valine.placeholder }}',
         avatar:'{{ theme.valine.avatar }}',
-        guest_info:guest,
+        meta:guest,
         pageSize:'{{ theme.valine.pageSize }}' || 10,
+        visitor: {{ theme.valine.visitor }}
     });
   </script>
 {% endif %}

@@ -1,5 +1,5 @@
 ---
-title: vue-cli 使用
+title: vue-cli 2.x 使用
 categories:
   - vuejs
 tags:
