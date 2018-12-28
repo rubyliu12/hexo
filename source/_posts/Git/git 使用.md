@@ -65,3 +65,27 @@ cd existing_git_repo
 git remote add origin https://github.com/xxx/xxxx.git
 git push -u origin master
 ```
+
+
+
+## 回滚操作
+
+```shell
+# 回滚到上一次提交
+git reset HEAD^
+# 强制提交到远程仓库（会覆盖掉reset前的提交记录）
+git push origin master -f
+```
+
+
+
+# fork后同步更新
+
+```shell
+git remote -v 
+git remote add upstream git@github.com:xxx/xxx.git
+git fetch upstream
+git merge upstream/master
+git push
+```
+
