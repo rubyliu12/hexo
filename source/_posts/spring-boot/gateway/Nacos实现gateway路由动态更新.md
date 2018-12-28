@@ -16,6 +16,10 @@ date: 2018-12-25 14:11:20
 
 
 
+代码在托管[nacos-spring-cloud-gateway-example](https://github.com/foreveryang321/java-learning-examples/tree/master/nacos-spring-cloud-gateway-example)
+
+
+
 <!-- more-->
 
 
@@ -150,46 +154,178 @@ org.springframework.cloud.endpoint.event.RefreshEventListener.handle(37) | Refre
 
 
 
-# 动态更新的原理
+# 动态更新原理
 
-> `spring-cloud-gateway` 的 RouteRefreshListener 已经监听了 ApplicationEvent 事件，所以当 Nacos 中的路由规则变更后，会监听到`context refresh`事件，从而调用 reset 方法 publish 路由更新的事件
+1. [Nacos](https://nacos.io/zh-cn/) 配置更新的时候，`spring-cloud-starter-alibaba-nacos-config`会 `publish` 一个 `RefreshEvent` 事件，从而使 `spring-cloud-commons` 的 `RefreshEventListener` 监听到并触发 `ContextRefresher.refresh()` 方法。
+2. `spring-cloud-gateway` 的 `RouteRefreshListener` 监听了 `ApplicationEvent` 事件，当 `Nacos` 触发 `ContextRefresher.refresh()`后，会监听到 `RefreshScopeRefreshedEvent`事件并调用`RouteRefreshListener.reset()` 方法 `publish`  一个 `RefreshRoutesEvent` 路由更新事件，达到路由动态更新的目的。
 
-**org.springframework.cloud.gateway.route.RouteRefreshListener.java**
+
+
+
+## spring-cloud-alibaba-nacos-config
+
+在`spring-cloud-alibaba-nacos-config`中，会默认监听配置的更新，并publish refresh事件
+
+- NacosRefreshProperties.java
 
 ```java
-/*
- * Copyright 2013-2018 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
+@Component
+public class NacosRefreshProperties {
 
-package org.springframework.cloud.gateway.route;
+	@Value("${spring.cloud.nacos.config.refresh.enabled:true}")
+	private boolean enabled = true;
 
-import org.springframework.cloud.client.discovery.event.HeartbeatEvent;
-import org.springframework.cloud.client.discovery.event.HeartbeatMonitor;
-import org.springframework.cloud.client.discovery.event.InstanceRegisteredEvent;
-import org.springframework.cloud.client.discovery.event.ParentHeartbeatEvent;
-import org.springframework.cloud.context.scope.refresh.RefreshScopeRefreshedEvent;
-import org.springframework.cloud.gateway.event.RefreshRoutesEvent;
-import org.springframework.context.ApplicationEvent;
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.util.Assert;
+	public boolean isEnabled() {
+		return enabled;
+	}
 
-// see ZuulDiscoveryRefreshListener
-// TODO: make abstract class in commons?
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+}
+```
+
+> `...refresh.enabled:true`默认开启配置更新事件推送
+
+
+
+- NacosContextRefresher.java
+
+```java
+public class NacosContextRefresher
+		implements ApplicationListener<ApplicationReadyEvent>, ApplicationContextAware {
+
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(NacosContextRefresher.class);
+
+	public static final AtomicLong loadCount = new AtomicLong(0);
+
+	private final NacosRefreshProperties refreshProperties;
+
+	private final NacosRefreshHistory refreshHistory;
+
+	private final ConfigService configService;
+
+	private ApplicationContext applicationContext;
+
+	private AtomicBoolean ready = new AtomicBoolean(false);
+
+	private Map<String, Listener> listenerMap = new ConcurrentHashMap<>(16);
+
+	public NacosContextRefresher(NacosRefreshProperties refreshProperties,
+			NacosRefreshHistory refreshHistory, ConfigService configService) {
+		this.refreshProperties = refreshProperties;
+		this.refreshHistory = refreshHistory;
+		this.configService = configService;
+	}
+
+	@Override
+	public void onApplicationEvent(ApplicationReadyEvent event) {
+		// many Spring context
+		if (this.ready.compareAndSet(false, true)) {
+			this.registerNacosListenersForApplications();
+		}
+	}
+
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext) {
+		this.applicationContext = applicationContext;
+	}
+
+	private void registerNacosListenersForApplications() {
+		if (refreshProperties.isEnabled()) {
+			for (NacosPropertySource nacosPropertySource : NacosPropertySourceRepository
+					.getAll()) {
+
+				if (!nacosPropertySource.isRefreshable()) {
+					continue;
+				}
+
+				String dataId = nacosPropertySource.getDataId();
+				registerNacosListener(nacosPropertySource.getGroup(), dataId);
+			}
+		}
+	}
+
+	private void registerNacosListener(final String group, final String dataId) {
+
+		Listener listener = listenerMap.computeIfAbsent(dataId, i -> new Listener() {
+			@Override
+			public void receiveConfigInfo(String configInfo) {
+				loadCount.incrementAndGet();
+				String md5 = "";
+				if (!StringUtils.isEmpty(configInfo)) {
+					try {
+						MessageDigest md = MessageDigest.getInstance("MD5");
+						md5 = new BigInteger(1, md.digest(configInfo.getBytes("UTF-8")))
+								.toString(16);
+					}
+					catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+						LOGGER.warn("[Nacos] unable to get md5 for dataId: " + dataId, e);
+					}
+				}
+				refreshHistory.add(dataId, md5);
+				applicationContext.publishEvent(
+						new RefreshEvent(this, null, "Refresh Nacos config"));
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("Refresh Nacos config group{},dataId{}", group, dataId);
+				}
+			}
+
+			@Override
+			public Executor getExecutor() {
+				return null;
+			}
+		});
+
+		try {
+			configService.addListener(dataId, group, listener);
+		}
+		catch (NacosException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
+```
+
+
+
+## spring-cloud-gateway
+
+- RefreshEventListener.java
+
+```java
+public class RefreshEventListener {
+	private static Log log = LogFactory.getLog(RefreshEventListener.class);
+	private ContextRefresher refresh;
+	private AtomicBoolean ready = new AtomicBoolean(false);
+
+	public RefreshEventListener(ContextRefresher refresh) {
+		this.refresh = refresh;
+	}
+
+	@EventListener
+	public void handle(ApplicationReadyEvent event) {
+		this.ready.compareAndSet(false, true);
+	}
+
+	@EventListener
+	public void handle(RefreshEvent event) {
+		if (this.ready.get()) { // don't handle events before app is ready
+			log.debug("Event received " + event.getEventDesc());
+			Set<String> keys = this.refresh.refresh();
+			log.info("Refresh keys changed: " + keys);
+		}
+	}
+}
+```
+
+
+
+- RouteRefreshListener.java
+
+```java
 public class RouteRefreshListener
 		implements ApplicationListener<ApplicationEvent> {
 
@@ -229,5 +365,4 @@ public class RouteRefreshListener
 	}
 
 }
-
 ```
