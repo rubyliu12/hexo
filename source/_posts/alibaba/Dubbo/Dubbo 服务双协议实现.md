@@ -107,7 +107,7 @@ public class UserServiceImpl implements UserService {
 # 验证 rest 服务
 
 ```shell
-$ curl http://localhost:8888/demo/say-hello?name=forever
+$ curl http://localhost:8080/demo/say-hello?name=forever
 Hello, forever!
 ```
 
