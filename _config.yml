@@ -48,6 +48,9 @@ i18n_dir: :lang
 skip_render:
   - 404.html
   - README.md
+  - google93a7690967fabbb0.html
+  - sitemap.xml
+  - robots.txt
 
 # Writing
 # File name of new posts

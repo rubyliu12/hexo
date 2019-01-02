@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /index.html
+Allow: /posts/
+Sitemap: https://blog.yl-online.top/sitemap.xml
