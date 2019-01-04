@@ -6,10 +6,8 @@ tags: []
 abbrlink: 4896de77
 date: 2017-07-07 08:35:33
 ---
-# git初始使用
+# 基本命令
 
-
-### 基本命令
 ```sh
 git add
 git commit
@@ -28,7 +26,7 @@ git pull
 
 
 
-### fatal: remote origin already exists错误
+# fatal: remote origin already exists错误
 
 先删除远程 Git 仓库
 ```sh
@@ -68,9 +66,27 @@ git push -u origin master
 
 
 
-## 回滚操作
+# git flow
+
+分支共有5种类型
+
+　　1) master，最终发布版本，整个项目中有且只有一个
+
+　　2) develop，项目的开发分支，原则上项目中有且只有一个
+
+　　3) feature，功能分支，用于开发一个新的功能
+
+　　4) release，预发布版本，介于develop和master之间的一个版本，主要用于测试
+
+　　5) hotfix，修复补丁，用于修复master上的bug，直接作用于master
+
+
+
+# 回滚操作
 
 ```shell
+# 查看记录
+git log --oneline
 # 回滚到上一次提交
 git reset HEAD^
 # 强制提交到远程仓库（会覆盖掉reset前的提交记录）

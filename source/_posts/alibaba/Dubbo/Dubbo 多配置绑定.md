@@ -1,5 +1,5 @@
 ---
-title: Dubbo 服务双协议实现
+title: Dubbo 多配置绑定
 categories:
   - Java
 tags:
@@ -12,14 +12,26 @@ date: 2018-09-18 10:35:05
 
 
 
-# 在 application.yml 中添加如下配置
+
+
+本文主要阐述，[Dubbo](http://dubbo.apache.org/zh-cn/) 多协议、单协议多端口实现
+
+
+
+<!-- more --> 
+
+
+
+# 多协议实现
+
+## 在 application.yml 中添加如下配置
 
 首先要开启多协议的配置开关，再通过 protocols 指定多协议
 
 ```yaml
 dubbo:
   config:
-  	# 开启多配置支持
+  	# 开启多个配置绑定
     multiple: true
   # 多协议配置
   protocols:
@@ -78,11 +90,7 @@ dubbo:
 
 
 
-<!-- more --> 
-
-
-
-# Dubbo Service 指定多个协议
+## Dubbo Service 指定多个协议
 
 ```java
 import com.alibaba.dubbo.config.annotation.Service;
@@ -90,6 +98,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 @Service(
         protocol = {"dubbo", "rest"}
 )
+// @Service
 @javax.ws.rs.Path("/user")
 public class UserServiceImpl implements UserService {
 
@@ -102,12 +111,63 @@ public class UserServiceImpl implements UserService {
 }
 ```
 
+> @Service 不配置 protocol，默认使用所有协议
 
 
-# 验证 rest 服务
+
+
+
+## 验证 rest 服务
 
 ```shell
 $ curl http://localhost:8080/demo/say-hello?name=forever
 Hello, forever!
 ```
 
+
+
+
+
+# 单协议多端口实现
+
+## 在 application.yml 中添加如下配置
+
+首先要开启多协议的配置开关，再通过 protocols 指定多协议
+
+```yaml
+dubbo:
+  config:
+  	# 开启多个配置绑定
+    multiple: true
+  # 多协议配置
+  protocols:
+    dubbo:
+      name: dubbo
+      port: 20885
+      server: netty4
+    dubbo2:
+      name: dubbo
+      port: 20886
+      server: netty4
+```
+
+
+
+## Dubbo Service 指定多个协议
+
+```java
+import com.alibaba.dubbo.config.annotation.Service;
+
+// @Service(
+//         protocol = {"dubbo", "dubbo2"}
+// )
+@Service
+public class UserServiceImpl implements UserService {
+
+    public String sayHello(String name) {
+        return "Hello, " + name + "!";
+    }
+}
+```
+
+> @Service 不配置 protocol，默认使用所有协议
